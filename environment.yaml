@@ -127,4 +127,4 @@ dependencies:
     - werkzeug==1.0.1
     - wrapt==1.12.1
     - zipp==3.2.0
-prefix: /home/jinsukim/miniconda3/envs/rl-gym-retro
+prefix: /home/zinzinbin/conda/envs/rl-gym-retro
