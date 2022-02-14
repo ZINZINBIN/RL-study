@@ -11,8 +11,8 @@ class DQN(nn.Module):
         self.conv3 = nn.Conv2d(32,32,kernel_size = 5, stride = 2)
         self.bn3 = nn.BatchNorm2d(32)
 
-        convw = self._conv2d_size_out(self._conv2d_size_out(w, kernel_size = 5, stride = 2))
-        convh = self._conv2d_size_out(self._conv2d_size_out(h, kernel_size = 5, stride = 2))
+        convw = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(w, kernel_size = 5, stride = 2)))
+        convh = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(h, kernel_size = 5, stride = 2)))
         linear_input_dim = convw * convh * 32
 
         self.head = nn.Linear(linear_input_dim, output_dims)
