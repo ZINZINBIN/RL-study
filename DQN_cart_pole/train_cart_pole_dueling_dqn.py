@@ -1,13 +1,4 @@
-'''
-DDQN : Double Deep Q-Netowrk
-(1) BackGround
-- over-estimate problem : Q-learning 알고리즘이 특정조건에서 action value가  지나치게 커진다
-- Y = R + gamma * max Q(s,a) => R + gamma * Q(s, argmax Q(s,a)) 로 대체한다.
-(2) Structure
-- with CNN : CNN Q-network를 2개 활용하여 진행
-- without CNN : Linear Layer를 활용하여 진행
-model은 DQN을 그대로 활용
-'''
+# Dueling DQN : DDQN with two function estimators(value and adavantage)
 
 import gym
 import random
@@ -79,8 +70,8 @@ init_screen = get_screen(env)
 _,_,screen_height, screen_width = init_screen.shape
 
 # Network loaded
-policy_net = DQN(screen_height, screen_width, n_actions)
-target_net = DQN(screen_height, screen_width, n_actions)
+policy_net = DuelingDQN(screen_height, screen_width, n_actions, n_actions, 128)
+target_net = DuelingDQN(screen_height, screen_width, n_actions, n_actions, 128)
 target_net.load_state_dict(policy_net.state_dict())
 
 # gpu allocation(device)
