@@ -8,31 +8,22 @@ from gym import wrappers, logger
 from pyvirtualdisplay import Display
 from tqdm import tqdm
 
-display = Display(visible= False, size = (400,300))
-display.start()
-
-env = gym.make("FrozenLake-v0")
-env.reset()
-
 parser = argparse.ArgumentParser()
+parser.add_argument("--episodes", type = int, default = 100)
 parser.add_argument("--demo", type = bool, default = False)
 parser.add_argument("--slippery", type = bool, default = False)
 parser.add_argument("--decay", type = float, default = 0.9, help = "decay rate for epsilon")
 parser.add_argument("--gamma", type = float, default = 0.95, help = "discount rate for reward")
-parser.add_argument("--epsilon", type = float, default = 0.9, help = "epsilon for e-greedy algorithm")
-parser.add_argument("--epsilon_min", type = float, default = 0.1, help = "epsilon min for e-greedy algorithm")
+parser.add_argument("--epsilon", type = float, default = 0.8, help = "epsilon for e-greedy algorithm")
+parser.add_argument("--epsilon_min", type = float, default = 0.2, help = "epsilon min for e-greedy algorithm")
 parser.add_argument("--lr", type = float, default = 0.1, help = "learing rate")
-parser.add_argument("--is_explore", type = bool, default = False)
-parser.add_argument("--delay", type = float, default = 1e-3)
+parser.add_argument("--is_explore", type = bool, default = True)
+parser.add_argument("--delay", type = float, default = 1e-1)
 
 args = parser.parse_args()
 
-# define spaces
-observation_space = env.observation_space
-action_space = env.action_space
-
 # parameter 
-episodes = 10000
+episodes = args.episodes
 demo = args.demo
 slippery = args.slippery
 decay = args.decay
@@ -42,6 +33,17 @@ epsilon_min = args.epsilon_min
 learning_rate = args.lr
 is_explore = args.is_explore
 delay = args.delay
+
+# initalize display
+display = Display(visible= False, size = (400,300))
+display.start()
+
+env = gym.make("FrozenLake-v1", is_slippery = slippery)
+env.reset()
+
+# define spaces
+observation_space = env.observation_space
+action_space = env.action_space
 
 # agent
 class QAgent():
@@ -91,7 +93,7 @@ class QAgent():
             return self.action_space.sample()
         
         # q_table : observation_space.n * action_space.n
-        return np.armax(self.q_table[state])
+        return np.argmax(self.q_table[state])
 
     def update_q_table(self, state, action, reward, next_state):
 
@@ -170,5 +172,4 @@ for episode in range(episodes):
 
 
 print("# Q-network training done....!")
-env.render()
 env.close()

@@ -50,7 +50,7 @@ class PolicyNet(nn.Module):
 
 class ValueNet(nn.Module):
     def __init__(self, h, w, output_dims = 1):
-        super(PolicyNet, self).__init__()
+        super(ValueNet, self).__init__()
         self.h = h
         self.w = w
         self.output_dims = output_dims
@@ -61,7 +61,7 @@ class ValueNet(nn.Module):
         return x
 
 
-def update_replay_memory(env, memory, policy, max_num_steps, device):
+def update_replay_memory(env, policy, max_num_steps, device):
     env.reset()
     last_screen = get_screen(env)
     crt_screen = get_screen(env)
@@ -69,12 +69,13 @@ def update_replay_memory(env, memory, policy, max_num_steps, device):
     state = crt_screen - last_screen
     steps = 0
 
+    memory = PGReplayMemory(max_num_steps)
     memory.init_memory()
 
     for t in count():
         state = state.to(device)
         action, logp = policy.get_action_and_logp(state)
-        next_state, reward, done = env.step(action)
+        next_state, reward, done, _ = env.step(action)
         reward = torch.tensor([reward], device = device)
 
         last_screen = crt_screen
@@ -92,18 +93,21 @@ def update_replay_memory(env, memory, policy, max_num_steps, device):
         if steps >=max_num_steps or done:
             break
     
+    memory.rearrange_list()
     return memory
 
-def get_rewards(memory):
+def get_rewards(memory, gamma):
     rewards = memory.reward_list
-
-
+    dis_rewards = [gamma ** i * r for i, r in enumerate(rewards)]
+    sum_rewards = [sum(dis_rewards[i:]) for i in range(len(dis_rewards))]
+    return sum_rewards
 
 def policy_gradient_process(
     env, episodes = 100, num_traj=10, max_num_steps=1000, gamma=0.98,
     policy_learning_rate=0.01, value_learning_rate=0.01,
     policy_saved_path='mcpg_policy.pt', value_saved_path='mcpg_value.pt',
-    device = 'cpu'
+    device = 'cpu',
+    epi_verbose = 10
     ):
 
     init_screen = get_screen(env)
@@ -113,17 +117,48 @@ def policy_gradient_process(
 
     policy_net = PolicyNet(screen_height, screen_width, n_actions)
     value_net = ValueNet(screen_height, screen_width, 1)
-    memory = PGReplayMemory(max_num_steps)
+    
 
     policy_optimizer = torch.optim.RMSprop(policy_net.parameters(), lr = policy_learning_rate)
     value_optimizer = torch.optim.RMSprop(value_net.parameters(), lr = value_learning_rate)
 
     policy_net.to(device)
-    value_optimizer.to(device)
+    value_net.to(device)
 
     mean_return_list = []
 
     for episode in tqdm(range(episodes)):
-
         # value_net : gradient(value_net)으로 경사 학습
         # policy_net : J <= [R - V(s)] * gradient(log(policy_net)) 으로 경사 학습
+        traj_list = [update_replay_memory(env, policy_net, max_num_steps, device) for _ in range(num_traj)]
+
+        # returns : t = 0 ~ T 까지의 합으로 구성된 보상 리스트
+        returns = [get_rewards(memory, gamma) for memory in traj_list]
+        
+        policy_loss_terms = [
+            (-1.0) * traj.logp_list[j] * (returns[i][j] - value_net(traj.state_list[j].to(device))) for i, traj in enumerate(traj_list) for j in range(len(traj.action_list))
+        ]
+
+        policy_loss = 1.0 / num_traj * torch.cat(policy_loss_terms).sum()
+        policy_optimizer.zero_grad()
+        policy_loss.backward()
+        policy_optimizer.step()
+
+        value_loss_terms = [
+            1.0 / len(traj.action_list) * (value_net(traj.state_list[j].to(device)) - returns[i][j]) ** 2 for i, traj in enumerate(traj_list) for j in range(len(traj.action_list))
+        ]
+
+        value_loss = 1.0 / num_traj * torch.cat(value_loss_terms).sum()
+        value_optimizer.zero_grad()
+        value_loss.backward()
+        value_optimizer.step()
+
+        mean_return = 1.0 / num_traj * sum([traj_returns[0] for traj_returns in returns]).detach().cpu().item()
+        mean_return_list.append(mean_return)
+
+        if episode % epi_verbose == 0:
+            print("Episode : {} : Mean Return : {}".format(episode, mean_return))
+            torch.save(policy_net.state_dict(), policy_saved_path)
+            torch.save(value_net.state_dict(), value_saved_path)
+
+    return policy_net, value_net, mean_return_list

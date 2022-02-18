@@ -54,7 +54,9 @@ class PGReplayMemory(object):
         reward_list = []
         logp_list = []
 
-        for idx in range(self.memory.maxlen):
+        maxlen = self.__len__()
+
+        for idx in range(maxlen):
             sample = self.memory.popleft()
             state_list.append(sample.state)
             action_list.append(sample.action)
