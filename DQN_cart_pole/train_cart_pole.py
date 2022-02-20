@@ -49,6 +49,10 @@ def select_action(state, policy_net, device):
 init_screen = get_screen(env)
 _,_,screen_height, screen_width = init_screen.shape
 
+print("input data shape : ", init_screen.shape)
+print("screen_height : ", screen_height)
+print("screen_width : ", screen_width)
+
 # gym action space에서 action 상태 수 결정
 n_actions = env.action_space.n
 
@@ -57,6 +61,9 @@ print("n_actions : ", n_actions)
 policy_net = DQN(screen_height, screen_width, n_actions)
 target_net = DQN(screen_height, screen_width, n_actions)
 target_net.load_state_dict(policy_net.state_dict())
+
+# model structure 
+plot_model_struture(policy_net, init_screen.shape)
 
 # device
 policy_net.to(device)

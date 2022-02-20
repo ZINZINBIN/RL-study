@@ -4,6 +4,7 @@ import numpy as np
 import torch
 import matplotlib
 import matplotlib.pyplot as plt
+from pytorch_model_summary import summary
 
 resize = T.Compose([
     T.ToPILImage(),
@@ -67,3 +68,9 @@ def plot_durations(episode_duration):
         display.clear_output(wait=True)
         display.display(plt.gcf())
         
+
+def plot_model_struture(model, input_shape):
+    x = torch.zeros(input_shape)
+    # 앞에서 생성한 model에 Input을 x로 입력한 뒤 (model(x))  graph.png 로 이미지를 출력합니다.
+    # make_dot(model(x), params=dict(model.named_parameters())).render("graph", format="png")
+    print(summary(model, x, show_input = True))
