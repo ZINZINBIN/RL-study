@@ -31,7 +31,7 @@ parser.add_argument("--eps_start", type = float, default = 0.9)
 parser.add_argument("--eps_end", type = float, default = 0.05)
 parser.add_argument("--eps_decay", type = float, default = 200)
 parser.add_argument("--target_update", type = int, default = 10)
-parser.add_argument("--num_episode", type = int, default = 128)
+parser.add_argument("--num_episode", type = int, default = 256)
 
 args = vars(parser.parse_args())
 
@@ -93,12 +93,12 @@ target_net.eval()
 
 # opimizer and memory loaded
 optimizer = torch.optim.RMSprop(policy_net.parameters())
-memory = ReplayMemory(10000)
+memory = ReplayMemory(1000000)
 
 # 학습 루프 : DDQN의 경우 action evaluation 과 action selection을 분리함
 def optimize_model():
     if len(memory) < BATCH_SIZE:
-        return
+        return None, None
     transitions = memory.sample(BATCH_SIZE)
     batch = Transition(*zip(*transitions))
 
@@ -150,6 +150,11 @@ def optimize_model():
         param.grad.data.clamp_(-1,1) # gradient clipping 
     optimizer.step()
 
+    return expected_state_action_values.detach().cpu().numpy(), loss.detach().cpu().numpy()
+
+mean_reward_list = []
+mean_loss_list = []
+
 # training process for each episode
 for i_episode in tqdm(range(num_episode)):
     env.reset()
@@ -157,6 +162,9 @@ for i_episode in tqdm(range(num_episode)):
     current_screen = get_screen(env)
 
     state = current_screen - last_screen
+
+    mean_reward = []
+    mean_loss = []
 
     for t in count():
         state = state.to(device)
@@ -179,16 +187,40 @@ for i_episode in tqdm(range(num_episode)):
         state = next_state
 
         # policy_net -> optimize
-        optimize_model()
+        reward_new, loss_new = optimize_model()
+
+        if reward_new is not None:
+            mean_loss.append(loss_new)
+            mean_reward.append(reward_new)
 
         if done:
             episode_durations.append(t+1)
+            mean_loss = np.mean(mean_loss)
+            mean_reward = np.mean(mean_reward)
             break
 
     if i_episode % TARGET_UPDATE == 0:
-        target_net.load_state_dict(policy_net.state_dict())    
+        target_net.load_state_dict(policy_net.state_dict())  
+
+    mean_loss_list.append(mean_loss)
+    mean_reward_list.append(mean_reward)  
 
 print("training policy network and target network done....!")
 
-# env.render()
 env.close()
+
+# plot the result
+plt.subplot(1,2,1)
+plt.plot(range(1, num_episode + 1), mean_loss_list, 'r--', label = 'mean loss')
+plt.xlabel("Episode")
+plt.ylabel("Loss")
+plt.ylim([0, 1.0])
+plt.legend()
+
+plt.subplot(1,2,2)
+plt.plot(range(1, num_episode + 1), mean_reward_list, 'b--', label = 'mean reward')
+plt.xlabel("Episode")
+plt.ylabel("Reward")
+plt.legend()
+
+plt.savefig("./results/DDQN_loss_reward_curve.png")

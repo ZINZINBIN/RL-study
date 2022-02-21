@@ -4,9 +4,6 @@
 (2) Monte-Carlo Method with dueling(Q -> Q - V(s,a))
 (3) Actor-Critic method
 (4) Advantage Actor-Critic
-
-- Detail
-(1) tensorflow version -> torch version
 '''
 from itertools import count
 import numpy as np
@@ -102,6 +99,7 @@ def get_rewards(memory, gamma):
     sum_rewards = [sum(dis_rewards[i:]) for i in range(len(dis_rewards))]
     return sum_rewards
 
+# Monte-Carlo Method
 def policy_gradient_process(
     env, episodes = 100, num_traj=10, max_num_steps=1000, gamma=0.98,
     policy_learning_rate=0.01, value_learning_rate=0.01,
@@ -162,3 +160,10 @@ def policy_gradient_process(
             torch.save(value_net.state_dict(), value_saved_path)
 
     return policy_net, value_net, mean_return_list
+
+
+# Act to Critic Process
+
+def A2C_process(env):
+
+    return None

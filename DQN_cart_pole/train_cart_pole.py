@@ -24,14 +24,14 @@ EPS_END = 0.05
 EPS_DECAY = 200
 TARGET_UPDATE = 10
 steps_done = 0
-num_episode = 128
+num_episode = 256
 
 episode_durations = []
 
 if torch.cuda.is_available():
     print("cuda available : ", torch.cuda.is_available())
     print("cuda device count : ", torch.cuda.device_count())
-    device = "cuda:1"
+    device = "cuda:0"
 else:
     device = "cpu" 
 
@@ -73,12 +73,12 @@ target_net.to(device)
 target_net.eval()
 
 optimizer = torch.optim.RMSprop(policy_net.parameters())
-memory = ReplayMemory(10000)
+memory = ReplayMemory(1000000)
 
 # 학습 루프
 def optimize_model():
     if len(memory) < BATCH_SIZE:
-        return
+        return None, None
     transitions = memory.sample(BATCH_SIZE)
     batch = Transition(*zip(*transitions))
 
@@ -112,9 +112,16 @@ def optimize_model():
 
     optimizer.zero_grad()
     loss.backward()
+
     for param in policy_net.parameters():
         param.grad.data.clamp_(-1,1) # gradient clipping 
+
     optimizer.step()
+
+    return expected_state_action_values.detach().cpu().numpy(), loss.detach().cpu().numpy()
+
+mean_reward_list = []
+mean_loss_list = []
 
 for i_episode in tqdm(range(num_episode)):
     env.reset()
@@ -122,6 +129,9 @@ for i_episode in tqdm(range(num_episode)):
     current_screen = get_screen(env)
 
     state = current_screen - last_screen
+
+    mean_reward = []
+    mean_loss = []
 
     for t in count():
         state = state.to(device)
@@ -144,16 +154,39 @@ for i_episode in tqdm(range(num_episode)):
         state = next_state
 
         # policy_net -> optimize
-        optimize_model()
+        reward_new, loss_new = optimize_model()
+
+        if reward_new is not None:
+            mean_loss.append(loss_new)
+            mean_reward.append(reward_new)
 
         if done:
             episode_durations.append(t+1)
+            mean_loss = np.mean(mean_loss)
+            mean_reward = np.mean(mean_reward)
             break
 
     if i_episode % TARGET_UPDATE == 0:
         target_net.load_state_dict(policy_net.state_dict())
 
-print("training policy network and target network done....!")
+    mean_loss_list.append(mean_loss)
+    mean_reward_list.append(mean_reward)
 
-# env.render()
+print("training policy network and target network done....!")
 env.close()
+
+# plot the result
+plt.subplot(1,2,1)
+plt.plot(range(1, num_episode + 1), mean_loss_list, 'r--', label = 'mean loss')
+plt.xlabel("Episode")
+plt.ylabel("Loss")
+plt.ylim([0, 1.0])
+plt.legend()
+
+plt.subplot(1,2,2)
+plt.plot(range(1, num_episode + 1), mean_reward_list, 'b--', label = 'mean reward')
+plt.xlabel("Episode")
+plt.ylabel("Reward")
+plt.legend()
+
+plt.savefig("./results/DQN_loss_reward_curve.png")
