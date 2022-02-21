@@ -99,7 +99,8 @@ def get_rewards(memory, gamma):
     sum_rewards = [sum(dis_rewards[i:]) for i in range(len(dis_rewards))]
     return sum_rewards
 
-# Monte-Carlo Method
+# 사실상 A2C : Actor 2 Critic Method
+# Value + Policy Network를 이용
 def policy_gradient_process(
     env, episodes = 100, num_traj=10, max_num_steps=1000, gamma=0.98,
     policy_learning_rate=0.01, value_learning_rate=0.01,
@@ -162,8 +163,52 @@ def policy_gradient_process(
     return policy_net, value_net, mean_return_list
 
 
-# Act to Critic Process
+# Asynchronus Actor to Critic Method
+# Actor : update policy parameters, in direction suggested by critic
+# critic : update action-value function parameter w
+# Multi -thread used
 
-def A2C_process(env):
+class A3C_agent(object):
+    def __init__(
+        self, 
+        h : int = None,
+        w : int = None,
+        n_states : int = None,  
+        n_actions : int = None,
+        gamma : float = 0.99,
+        actor_lr : float = 1e-3,
+        critic_lr : float = 1e-3,
+        actor = None,
+        critic = None,
+        actor_optimizer = None,
+        critic_optimizer = None,
+        thread = 8,
+        ):
 
-    return None
+        self.n_states = n_states
+        self.n_actions = n_actions
+        self.gamma = gamma
+        self.actor_lr = actor_lr
+        self.critic_lr = critic_lr
+
+        if actor is None:
+            self.actor = PolicyNet(h,w,n_actions)
+        else:
+            self.actor = actor
+
+        if critic is None:
+            self.critic = ValueNet(h,w,n_states)
+        else:
+            self.critic = critic
+
+        if actor_optimizer is None:
+            self.actor_optimizer = torch.optim.AdamW(self.actor.parameters(), lr = self.actor_lr)
+        else:
+            self.actor_optimizer = actor_optimizer
+        
+        if critic_optimizer is None:
+            self.critic_optimizer = torch.optim.AdamW(self.critic.parameters(), lr = self.critic_lr)
+        else:
+            self.critic_optimizer = critic_optimizer
+
+        self.thread = thread
