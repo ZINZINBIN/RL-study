@@ -104,7 +104,6 @@ class PrioritzedReplayMemory(object):
         weights /= weights.max()
         return np.array(weights, dtype = np.float32)
     
-
     def sample(self, batch_size, beta = 0.4):
         if self.__len__() == self.capacity:
             priorities = self.priorities
@@ -116,7 +115,10 @@ class PrioritzedReplayMemory(object):
 
         indices = np.random.choice(self.__len__(), batch_size, p = probs)
         samples = [self.memory[idx] for idx in indices]
-        weights = self.get_weights(probs, indices, beta)
-
+        weights = self.get_weights(probs, indices, beta)  
         
+        return samples, indices, weights
 
+    def update_priorities(self, batch_indices, batch_priorities):
+        for idx, prio in zip(batch_indices, batch_priorities):
+            self.priorities[idx] = prio

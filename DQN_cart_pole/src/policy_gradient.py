@@ -182,7 +182,7 @@ class A3C_agent(object):
         critic = None,
         actor_optimizer = None,
         critic_optimizer = None,
-        thread = 8,
+        threads = 8,
         ):
 
         self.n_states = n_states
@@ -211,4 +211,4 @@ class A3C_agent(object):
         else:
             self.critic_optimizer = critic_optimizer
 
-        self.thread = thread
+        self.threads = threads
