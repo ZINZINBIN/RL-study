@@ -213,3 +213,6 @@ plt.ylabel("Reward")
 plt.legend()
 
 plt.savefig("./results/DDQN_loss_reward_curve.png")
+
+# save model weights 
+torch.save(policy_net.state_dict(), "./weights/ddqn_best.pt")

@@ -14,6 +14,9 @@ def main():
     env = gym.make(GAME_LIST[0]).unwrapped
     env.reset()
 
+    screen = env.render(mode = 'rgb_array').transpose((2,0,1))
+    print("env.render screen shape : ",screen.shape)
+
     n_iter = 0
     max_iters = 10000
 
@@ -27,6 +30,8 @@ def main():
 
         if done:
             print('Reward: %s' % episode_reward)
+            screen = env.render(mode = 'rgb_array').transpose((2,0,1))
+            print("env.render screen shape : ",screen.shape)
             break
             
         if n_iter >= max_iters:
