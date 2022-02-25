@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
     # model loaded
     policy_net = DQN(screen_height, screen_width, n_actions)
-    policy_net.load_state_dict(torch.load("./weights/dqn_best.pt", map_location=device))
+    policy_net.load_state_dict(torch.load("./weights/dqn_best_exp002.pt", map_location=device))
     policy_net.to(device)
     policy_net.eval()
 
@@ -73,6 +73,7 @@ if __name__ == "__main__":
             break
             
         if n_iter >= max_iters:
+            print('Reward: %s' % episode_reward)
             break
 
     env.close()

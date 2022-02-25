@@ -10,7 +10,7 @@ from pytorch_model_summary import summary
 
 resize = T.Compose([
     T.ToPILImage(),
-    T.Resize(40, interpolation=Image.CUBIC),
+    T.Resize(128, interpolation=Image.CUBIC),
     T.ToTensor()
 ])
 

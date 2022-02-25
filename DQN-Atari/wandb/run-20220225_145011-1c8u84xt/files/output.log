@@ -1,0 +1,157 @@
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 18%|████▍                    | 180/1024 [05:05<23:50,  1.70s/it]
+Traceback (most recent call last):
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/train_dqn.py", line 196, in <module>
+    reward_new, loss_new = optimize_model()
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/train_dqn.py", line 120, in optimize_model
+    next_state_values[non_final_mask] = target_net(non_final_next_states).max(1)[0].detach()
+  File "/home/zinzinbin/.conda/envs/rl-env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/src/model.py", line 28, in forward
+    x = nn.functional.relu(self.bn3(self.conv3(x)))
+  File "/home/zinzinbin/.conda/envs/rl-env/lib/python3.9/site-packages/torch/nn/functional.py", line 1299, in relu
+    result = torch.relu(input)
+RuntimeError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 1; 11.91 GiB total capacity; 10.87 GiB already allocated; 2.94 MiB free; 11.03 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

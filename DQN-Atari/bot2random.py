@@ -11,7 +11,7 @@ def main():
     display = Display(visible=False, size = (400,300))
     display.start()
 
-    env = gym.make(GAME_LIST[0]).unwrapped
+    env = gym.make(GAME_LIST[1]).unwrapped
     env.reset()
 
     screen = env.render(mode = 'rgb_array').transpose((2,0,1))
