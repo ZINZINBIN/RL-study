@@ -4,18 +4,12 @@
 ## How to Run
 - 환경 구축
 ```
+# conda 환경 구축
 conda create env -f environment.yaml
 conda activate custom_env
-```
 
-- DQN model 학습
-```
-python3 train_model.py
-```
-
-- Episode 실행
-```
-python3 play_episode.py
+# console play 환경 구축(pyvirtualdisplay, atari)
+pip install requirements.txt
 ```
 
 ## Code Structure

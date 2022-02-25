@@ -20,31 +20,26 @@ if __name__ == "__main__":
     env = gym.make('Breakout-v0').unwrapped
     env.reset()
 
-    init_screen = get_screen(env)
-    _,_,screen_height, screen_width = init_screen.shape
+    # generate screen and state
+    last_screen = get_screen(env)
+    current_screen = get_screen(env)
+    state = current_screen - last_screen
+
+    _,_,screen_height, screen_width = last_screen.shape
     n_actions = env.action_space.n
 
     n_iter = 0
-    max_iters = 100000
+    max_iters = 10000
     episode_reward = 0
     steps_done = 0
 
     # model loaded
     policy_net = DQN(screen_height, screen_width, n_actions)
-    policy_net.load_state_dict(torch.load("./weights/ddqn_best.pt", map_location=device))
+    policy_net.load_state_dict(torch.load("./weights/dqn_best.pt", map_location=device))
     policy_net.to(device)
-
+    policy_net.eval()
 
     while True:
-
-        n_iter +=1
-        steps_done +=1
-
-        # generate screen and state
-        last_screen = get_screen(env)
-        current_screen = get_screen(env)
-        state = current_screen - last_screen
-        
         state = state.to(device)
         action = select_action_from_Q_Network(
             state,
@@ -56,6 +51,22 @@ if __name__ == "__main__":
 
         _, reward, done, _ = env.step(action)
         episode_reward += reward
+
+        # update state from screen
+        last_screen = current_screen
+        current_screen = get_screen(env)
+
+        if not done:
+            next_state = current_screen - last_screen
+
+        else:
+            next_state = None
+        
+        state = next_state
+
+        # update iteration num
+        n_iter +=1
+        steps_done +=1
 
         if done:
             print('Reward: %s' % episode_reward)

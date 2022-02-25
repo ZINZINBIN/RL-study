@@ -5,16 +5,16 @@ from torch.autograd import Variable
 class DQN(nn.Module):
     def __init__(self, h, w, output_dims):
         super(DQN, self).__init__()
-        self.conv1 = nn.Conv2d(3, 16, kernel_size = 5, stride = 2)
-        self.bn1 = nn.BatchNorm2d(16)
-        self.conv2 = nn.Conv2d(16, 32, kernel_size = 5, stride = 2)
-        self.bn2 = nn.BatchNorm2d(32)
-        self.conv3 = nn.Conv2d(32,32,kernel_size = 5, stride = 2)
-        self.bn3 = nn.BatchNorm2d(32)
+        self.conv1 = nn.Conv2d(3, 32, kernel_size = 8, stride = 4)
+        self.bn1 = nn.BatchNorm2d(32)
+        self.conv2 = nn.Conv2d(32, 64, kernel_size = 4, stride = 2)
+        self.bn2 = nn.BatchNorm2d(64)
+        self.conv3 = nn.Conv2d(64,64,kernel_size = 3, stride = 1)
+        self.bn3 = nn.BatchNorm2d(64)
 
-        convw = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(w, kernel_size = 5, stride = 2)))
-        convh = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(h, kernel_size = 5, stride = 2)))
-        linear_input_dim = convw * convh * 32
+        convw = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(w, kernel_size = 8, stride = 4), 4, 2), 3, 1)
+        convh = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(h, kernel_size = 8, stride = 4), 4, 2), 3, 1)
+        linear_input_dim = convw * convh * 64
 
         self.head = nn.Linear(linear_input_dim, output_dims)
         

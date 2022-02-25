@@ -22,8 +22,8 @@ def get_screen(env):
     # convert 800 * 1200 * 3 to 400 * 600 * 3
     screen = env.render(mode = 'rgb_array').transpose((2,0,1))
     _, screen_height, screen_width = screen.shape
-    screen = screen[:, int(screen_height * 0.4) : int(screen_height * 0.8)]
-    view_width = int(screen_width * 0.6)
+    # screen = screen[:, int(screen_height * 0.4) : int(screen_height * 0.8)]
+    # view_width = int(screen_width * 0.6)
 
     # continous한 memory 형태로 반환
     screen = np.ascontiguousarray(screen, dtype = np.float32)
