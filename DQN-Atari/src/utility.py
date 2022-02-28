@@ -31,7 +31,6 @@ def get_screen(env):
 
     return resize(screen).unsqueeze(0)
 
-
 def select_action_from_Q_Network(
     state, 
     policy_net, 

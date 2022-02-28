@@ -1,0 +1,24 @@
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+  0%|                                                                                                                                   | 0/1024 [00:04<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/train_dqn.py", line 177, in <module>
+    action = select_action(state, policy_net, device)
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/train_dqn.py", line 67, in select_action
+    return policy_net(state.to(device)).max(1)[1].view(1,1)
+  File "/home/zinzinbin/.conda/envs/rl-env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/src/model.py", line 34, in forward
+    x = self.head(x.view(x.size(0), -1))
+  File "/home/zinzinbin/.conda/envs/rl-env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/zinzinbin/.conda/envs/rl-env/lib/python3.9/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/home/zinzinbin/.conda/envs/rl-env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/zinzinbin/.conda/envs/rl-env/lib/python3.9/site-packages/torch/nn/modules/batchnorm.py", line 168, in forward
+    return F.batch_norm(
+  File "/home/zinzinbin/.conda/envs/rl-env/lib/python3.9/site-packages/torch/nn/functional.py", line 2280, in batch_norm
+    _verify_batch_size(input.size())
+  File "/home/zinzinbin/.conda/envs/rl-env/lib/python3.9/site-packages/torch/nn/functional.py", line 2248, in _verify_batch_size
+    raise ValueError("Expected more than 1 value per channel when training, got input size {}".format(size))
+ValueError: Expected more than 1 value per channel when training, got input size torch.Size([1, 128])

@@ -156,10 +156,7 @@ mean_loss_list = []
 # training process for each episode
 for i_episode in tqdm(range(num_episode)):
     env.reset()
-    last_screen = get_screen(env)
-    current_screen = get_screen(env)
-
-    state = current_screen - last_screen
+    state = get_screen(env)
 
     mean_reward = []
     mean_loss = []
@@ -170,11 +167,9 @@ for i_episode in tqdm(range(num_episode)):
         _, reward, done, _ = env.step(action.item())
 
         reward = torch.tensor([reward], device = device)
-        last_screen = current_screen
-        current_screen = get_screen(env)
 
         if not done:
-            next_state = current_screen - last_screen
+            next_state = get_screen(env)
 
         else:
             next_state = None

@@ -1,0 +1,1130 @@
+2022-02-28 05:49:40,977 INFO    MainThread:2383 [internal.py:wandb_internal():89] W&B internal server running at pid: 2383, started at: 2022-02-28 05:49:40.977664
+2022-02-28 05:49:40,979 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: check_version
+2022-02-28 05:49:40,979 INFO    WriterThread:2383 [datastore.py:open_for_write():77] open: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/run-2bsmucci.wandb
+2022-02-28 05:49:40,980 DEBUG   SenderThread:2383 [sender.py:send():235] send: header
+2022-02-28 05:49:40,980 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: check_version
+2022-02-28 05:49:41,004 DEBUG   SenderThread:2383 [sender.py:send():235] send: run
+2022-02-28 05:49:41,449 INFO    SenderThread:2383 [dir_watcher.py:__init__():169] watching files in: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files
+2022-02-28 05:49:41,449 INFO    SenderThread:2383 [sender.py:_start_run_threads():809] run started: 2bsmucci with start time 1646027380
+2022-02-28 05:49:41,449 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:49:41,449 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:49:41,450 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: run_start
+2022-02-28 05:49:41,452 DEBUG   HandlerThread:2383 [meta.py:__init__():36] meta init
+2022-02-28 05:49:41,452 DEBUG   HandlerThread:2383 [meta.py:__init__():50] meta init done
+2022-02-28 05:49:41,452 DEBUG   HandlerThread:2383 [meta.py:probe():210] probe
+2022-02-28 05:49:41,458 DEBUG   HandlerThread:2383 [meta.py:_setup_git():200] setup git
+2022-02-28 05:49:41,487 DEBUG   HandlerThread:2383 [meta.py:_setup_git():207] setup git done
+2022-02-28 05:49:41,487 DEBUG   HandlerThread:2383 [meta.py:_save_pip():54] save pip
+2022-02-28 05:49:41,488 DEBUG   HandlerThread:2383 [meta.py:_save_pip():68] save pip done
+2022-02-28 05:49:41,488 DEBUG   HandlerThread:2383 [meta.py:_save_conda():75] save conda
+2022-02-28 05:49:42,451 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_created():217] file/dir created: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:49:42,451 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_created():217] file/dir created: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/conda-environment.yaml
+2022-02-28 05:49:42,451 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_created():217] file/dir created: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/requirements.txt
+2022-02-28 05:49:43,596 DEBUG   HandlerThread:2383 [meta.py:_save_conda():85] save conda done
+2022-02-28 05:49:43,596 DEBUG   HandlerThread:2383 [meta.py:probe():248] probe done
+2022-02-28 05:49:43,598 DEBUG   SenderThread:2383 [sender.py:send():235] send: files
+2022-02-28 05:49:43,598 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-metadata.json with policy now
+2022-02-28 05:49:43,649 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:49:43,649 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:49:43,844 DEBUG   SenderThread:2383 [sender.py:send():235] send: run
+2022-02-28 05:49:44,053 INFO    SenderThread:2383 [sender.py:send_run():707] updated run: 2bsmucci
+2022-02-28 05:49:44,183 INFO    Thread-11 :2383 [upload_job.py:push():137] Uploaded file /tmp/tmpymfj0a_fwandb/39p6fvly-wandb-metadata.json
+2022-02-28 05:49:44,452 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/conda-environment.yaml
+2022-02-28 05:49:44,452 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/config.yaml
+2022-02-28 05:49:44,452 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_created():217] file/dir created: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:49:44,452 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_created():217] file/dir created: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-metadata.json
+2022-02-28 05:49:46,452 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:49:46,544 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:49:46,544 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:49:46,545 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:49:47,452 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:49:50,453 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:49:51,170 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:49:51,170 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:49:51,171 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:49:51,453 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:49:52,454 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:49:56,171 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:49:56,171 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:49:56,172 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:49:56,454 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:49:58,455 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:49:58,507 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:49:58,507 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:49:58,507 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:49:58,845 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:49:58,845 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:49:59,455 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:00,455 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:03,011 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:03,012 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:03,012 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:03,456 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:04,456 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:07,738 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:07,738 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:07,739 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:08,457 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:10,024 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:50:10,173 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:10,173 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:10,173 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:10,458 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:10,458 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:12,458 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:14,031 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:50:14,031 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:50:15,004 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:15,004 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:15,005 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:15,459 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:16,459 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:18,863 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:18,863 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:18,863 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:19,460 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:20,460 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:21,392 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:21,392 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:21,393 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:21,460 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:22,461 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:24,671 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:24,671 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:24,672 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:25,461 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:26,462 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:27,685 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:27,685 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:27,685 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:28,462 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:29,219 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:50:29,219 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:50:29,924 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:29,925 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:29,925 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:30,463 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:30,463 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:32,463 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:34,746 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:34,746 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:34,747 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:35,464 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:36,464 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:38,756 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:38,756 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:38,757 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:39,465 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:40,465 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:40,657 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:50:42,603 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:42,604 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:42,604 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:43,466 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:44,401 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:50:44,402 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:50:44,466 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:45,205 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:45,205 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:45,205 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:45,467 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:46,467 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:50,059 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:50,059 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:50,059 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:50,468 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:52,468 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:52,493 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:52,493 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:52,493 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:53,469 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:54,469 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:55,658 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:55,658 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:55,658 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:56,470 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:58,470 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:50:58,975 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:50:58,975 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:50:58,975 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:50:59,470 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:50:59,590 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:50:59,591 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:51:00,471 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:04,403 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:04,403 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:04,403 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:04,471 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:06,472 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:08,824 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:08,824 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:08,825 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:09,473 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:10,473 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:10,983 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:10,983 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:10,983 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:11,269 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:51:11,473 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:12,473 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:14,672 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:14,672 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:14,672 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:14,779 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:51:14,779 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:51:15,474 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:16,474 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:17,797 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:17,797 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:17,797 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:18,475 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:20,406 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:20,406 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:20,406 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:20,475 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:20,476 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:22,476 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:22,672 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:22,672 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:22,672 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:23,476 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:24,476 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:25,473 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:25,473 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:25,473 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:25,477 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:26,484 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:27,911 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:27,911 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:27,911 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:28,485 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:29,971 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:51:29,972 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:51:30,243 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:30,244 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:30,244 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:30,485 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:30,485 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:32,486 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:35,566 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:35,566 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:35,567 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:36,486 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:36,487 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:39,387 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:39,388 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:39,388 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:39,487 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:40,487 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:41,948 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:51:43,376 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:43,376 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:43,376 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:43,488 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:44,488 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:45,174 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:51:45,174 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:51:45,869 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:45,869 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:45,869 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:46,489 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:48,489 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:49,134 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:49,134 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:49,134 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:49,490 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:50,490 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:51,791 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:51,792 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:51,792 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:52,491 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:54,386 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:54,386 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:54,386 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:54,491 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:51:54,491 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:56,492 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:51:57,871 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:51:57,871 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:51:57,871 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:51:58,492 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:00,364 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:52:00,365 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:52:00,493 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:01,214 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:01,214 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:01,215 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:01,493 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:02,493 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:03,742 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:03,743 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:03,743 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:04,494 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:04,494 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:07,612 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:07,612 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:07,613 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:08,496 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:08,496 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:09,870 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:09,871 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:09,871 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:10,496 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:12,497 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:12,600 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:52:13,160 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:13,160 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:13,160 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:13,497 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:14,497 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:15,585 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:52:15,585 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:52:15,936 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:15,936 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:15,936 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:16,498 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:18,498 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:19,863 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:19,863 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:19,863 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:20,499 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:22,311 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:22,311 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:22,311 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:22,499 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:22,499 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:24,500 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:24,851 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:24,851 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:24,851 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:25,500 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:26,500 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:29,127 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:29,128 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:29,128 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:29,501 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:30,501 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:30,779 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:52:30,779 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:52:33,666 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:33,666 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:33,666 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:34,502 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:34,502 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:36,128 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:36,128 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:36,128 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:36,503 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:38,503 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:39,571 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:39,571 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:39,571 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:40,504 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:40,504 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:43,375 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:52:43,643 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:43,643 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:43,644 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:44,505 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:44,505 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:45,983 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:52:45,983 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:52:46,333 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:46,333 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:46,334 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:46,505 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:48,505 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:50,377 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:50,377 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:50,377 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:50,506 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:52,506 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:53,285 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:53,285 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:53,285 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:53,507 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:52:54,507 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:52:58,331 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:52:58,331 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:52:58,332 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:52:58,508 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:00,508 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:01,210 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:53:01,210 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:53:02,153 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:02,153 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:02,153 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:02,509 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:04,509 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:07,236 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:07,236 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:07,237 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:07,510 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:08,510 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:12,187 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:12,187 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:12,187 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:12,511 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:14,123 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:53:14,512 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:14,631 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:14,631 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:14,632 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:15,512 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:16,431 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:53:16,431 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:53:16,512 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:17,217 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:17,217 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:17,217 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:17,512 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:18,513 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:19,604 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:19,605 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:19,605 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:20,513 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:20,513 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:22,801 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:22,802 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:22,802 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:23,514 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:24,514 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:25,222 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:25,222 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:25,222 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:25,514 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:26,514 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:31,100 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:31,100 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:31,100 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:31,516 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:31,624 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:53:31,624 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:53:32,516 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:36,258 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:36,258 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:36,258 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:36,517 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:38,517 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:39,355 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:39,355 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:39,355 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:39,517 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:40,518 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:41,900 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:41,900 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:41,900 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:42,518 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:42,518 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:44,357 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:44,358 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:44,358 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:44,519 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:45,036 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:53:46,519 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:46,821 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:53:46,821 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:53:48,571 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:48,571 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:48,571 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:49,520 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:50,520 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:52,175 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:52,175 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:52,175 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:52,521 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:54,521 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:54,562 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:54,562 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:54,562 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:55,521 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:53:56,522 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:53:58,783 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:53:58,783 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:53:58,783 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:53:59,522 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:00,523 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:02,014 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:54:02,014 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:54:03,374 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:03,374 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:03,374 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:03,524 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:04,524 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:07,760 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:07,760 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:07,761 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:08,526 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:08,526 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:10,142 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:10,142 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:10,143 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:10,526 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:12,527 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:12,618 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:12,618 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:12,618 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:13,527 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:14,527 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:15,891 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:15,891 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:15,891 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:15,895 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:54:16,528 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:16,528 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:17,204 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:54:17,204 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:54:19,322 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:19,322 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:19,323 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:19,528 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:20,529 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:21,690 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:21,690 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:21,690 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:22,529 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:22,530 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:25,530 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:25,531 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:25,531 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:25,531 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:26,532 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:29,653 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:29,653 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:29,653 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:30,533 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:30,533 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:32,403 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:54:32,403 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:54:33,131 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:33,131 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:33,131 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:33,533 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:34,533 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:37,776 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:37,777 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:37,777 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:38,534 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:38,535 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:40,030 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:40,030 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:40,031 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:40,535 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:40,535 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:45,171 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:45,171 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:45,171 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:45,536 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:46,536 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:46,828 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:54:47,624 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:47,624 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:54:47,624 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:47,624 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:47,624 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:54:48,537 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:48,537 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:50,819 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:50,819 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:50,819 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:51,538 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:52,538 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:54,222 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:54,222 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:54,222 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:54,538 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:54:56,539 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:54:58,232 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:54:58,232 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:54:58,233 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:54:58,539 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:00,540 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:01,389 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:01,389 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:01,389 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:01,540 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:02,540 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:02,817 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:55:02,817 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:55:06,007 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:06,008 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:06,008 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:06,541 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:06,541 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:08,932 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:08,932 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:08,932 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:09,542 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:10,543 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:11,312 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:11,312 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:11,312 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:11,543 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:12,543 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:14,985 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:14,985 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:14,985 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:15,544 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:16,544 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:17,521 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:55:18,004 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:55:18,004 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:55:18,464 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:18,464 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:18,464 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:18,545 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:20,545 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:23,920 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:23,920 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:23,920 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:24,546 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:24,546 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:27,658 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:27,658 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:27,658 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:28,547 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:28,547 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:30,288 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:30,288 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:30,288 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:30,548 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:32,548 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:32,722 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:32,723 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:32,723 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:33,201 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:55:33,201 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:55:33,549 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:34,549 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:35,968 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:35,969 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:35,969 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:36,549 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:36,550 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:40,488 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:40,488 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:40,488 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:40,550 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:42,551 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:44,640 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:44,640 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:44,640 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:45,552 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:46,552 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:47,907 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:47,907 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:47,907 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:48,293 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:55:48,396 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:55:48,397 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:55:48,552 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:48,552 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:52,503 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:52,504 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:52,504 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:52,553 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:54,554 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:55,586 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:55,586 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:55,586 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:56,554 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:55:56,555 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:55:59,172 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:55:59,172 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:55:59,173 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:55:59,555 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:00,555 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:01,668 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:01,669 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:01,669 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:02,556 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:02,556 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:03,592 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:56:03,592 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:56:05,622 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:05,622 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:05,622 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:06,557 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:06,557 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:10,179 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:10,179 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:10,179 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:10,558 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:10,558 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:15,439 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:15,439 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:15,439 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:15,559 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:16,559 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:18,860 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:56:18,860 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:56:19,267 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:56:21,609 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:21,609 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:21,610 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:22,560 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:22,560 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:25,529 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:25,529 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:25,529 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:25,561 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:26,561 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:28,825 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:28,825 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:28,825 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:29,564 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:30,564 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:32,552 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:32,552 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:32,553 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:32,565 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:34,060 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:56:34,060 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:56:34,565 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:34,977 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:34,977 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:34,977 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:35,566 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:36,566 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:38,715 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:38,716 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:38,716 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:39,566 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:40,567 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:41,122 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:41,122 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:41,122 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:41,567 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:42,567 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:43,473 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:43,473 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:43,473 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:43,568 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:44,568 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:45,952 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:45,952 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:45,953 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:46,568 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:46,568 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:48,390 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:48,390 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:48,390 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:48,569 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:49,249 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:56:49,249 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:56:50,188 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:56:50,569 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:50,876 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:50,876 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:50,876 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:51,569 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:52,570 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:55,145 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:55,145 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:55,145 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:55,571 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:56,571 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:56:58,253 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:56:58,253 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:56:58,254 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:56:58,571 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:56:58,572 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:02,068 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:02,069 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:02,069 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:02,572 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:02,572 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:04,444 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:57:04,444 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:57:05,642 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:05,642 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:05,643 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:06,573 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:06,573 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:08,108 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:08,108 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:08,108 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:08,574 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:08,574 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:11,874 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:11,875 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:11,875 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:12,574 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:12,575 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:14,306 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:14,306 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:14,306 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:14,575 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:14,575 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:18,243 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:18,243 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:18,243 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:18,576 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:18,576 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:19,635 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:57:19,635 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:57:20,668 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:20,668 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:20,668 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:21,256 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:57:21,576 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:22,577 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:23,703 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:23,704 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:23,704 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:24,578 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:24,578 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:27,178 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:27,178 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:27,178 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:27,579 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:28,579 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:32,017 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:32,017 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:32,017 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:32,580 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:34,580 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:34,823 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:57:34,823 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:57:35,542 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:35,542 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:35,542 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:35,581 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:36,581 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:39,412 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:39,412 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:39,413 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:39,582 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:40,582 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:42,764 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:42,764 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:42,764 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:43,582 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:44,583 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:45,210 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:45,210 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:45,211 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:45,583 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:46,583 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:48,977 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:48,977 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:48,977 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:49,584 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:50,015 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:57:50,015 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:57:50,584 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:51,492 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:51,492 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:51,492 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:51,584 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:52,267 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:57:52,585 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:53,921 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:53,921 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:53,921 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:54,585 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:54,585 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:57:57,674 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:57:57,674 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:57:57,674 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:57:58,586 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:57:58,586 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:03,303 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:03,303 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:03,304 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:03,587 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:04,587 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:05,207 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:58:05,207 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:58:05,804 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:05,804 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:05,804 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:06,588 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:06,588 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:09,191 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:09,191 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:09,192 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:09,589 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:10,589 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:12,521 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:12,521 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:12,521 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:12,589 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:14,590 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:19,425 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:19,425 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:19,425 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:19,591 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:20,397 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:58:20,397 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:58:20,591 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:21,658 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:21,658 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:21,658 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:22,592 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:22,592 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:22,944 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:58:23,751 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:23,751 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:23,751 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:24,592 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:24,593 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:26,050 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:26,051 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:26,051 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:26,593 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:26,593 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:28,476 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:28,477 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:28,477 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:28,593 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:30,594 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:32,836 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:32,836 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:32,836 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:33,595 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:34,595 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:35,585 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:58:35,585 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:58:35,820 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:35,820 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:35,820 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:36,595 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:36,596 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:38,042 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:38,042 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:38,042 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:38,596 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:38,596 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:40,154 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:40,155 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:40,155 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:40,596 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:40,596 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:42,327 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:42,328 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:42,328 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:42,597 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:44,597 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:45,133 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:45,133 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:45,134 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:45,597 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:46,598 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:47,191 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:47,191 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:47,192 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:47,598 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:48,598 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:50,244 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:50,244 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:50,244 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:50,599 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:50,820 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:58:50,820 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:58:52,599 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:52,976 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:52,976 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:52,977 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:53,412 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:58:53,599 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:54,599 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:58:57,392 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:58:57,393 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:58:57,393 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:58:57,600 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:58:58,600 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:00,863 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:59:00,863 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:00,864 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:01,601 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:02,601 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:04,232 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:59:04,232 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:04,233 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:04,602 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:04,602 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:06,013 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:59:06,013 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:59:06,799 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:59:06,799 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:06,801 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:07,602 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:08,602 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:09,748 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:59:09,749 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:09,750 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:10,603 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:11,603 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:13,110 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:59:13,111 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:13,111 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:13,604 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:15,272 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:59:15,272 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:15,272 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:15,604 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:15,604 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:17,604 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:20,034 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:59:20,034 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:20,035 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:20,605 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:21,202 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:59:21,202 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:59:21,605 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:23,419 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:59:23,420 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:23,420 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:23,606 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:23,901 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:59:25,514 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:59:25,514 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:25,514 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:25,606 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:25,606 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:27,607 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:30,643 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:59:30,643 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:30,643 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:31,608 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:33,163 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:59:33,163 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:33,163 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:33,608 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:33,608 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:35,609 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:36,401 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-28 05:59:36,401 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: stop_status
+2022-02-28 05:59:38,324 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:59:38,325 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:38,326 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:38,609 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:39,610 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:40,453 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:59:40,453 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:40,453 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:40,610 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:43,073 DEBUG   SenderThread:2383 [sender.py:send():235] send: history
+2022-02-28 05:59:43,073 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:43,074 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:43,610 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:43,611 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:45,611 INFO    Thread-8  :2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:46,852 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:46,853 DEBUG   SenderThread:2383 [sender.py:send():235] send: telemetry
+2022-02-28 05:59:46,853 DEBUG   SenderThread:2383 [sender.py:send():235] send: exit
+2022-02-28 05:59:46,853 INFO    SenderThread:2383 [sender.py:send_exit():371] handling exit code: 1
+2022-02-28 05:59:46,853 INFO    SenderThread:2383 [sender.py:send_exit():373] handling runtime: 605
+2022-02-28 05:59:46,854 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:46,854 INFO    SenderThread:2383 [sender.py:send_exit():379] send defer
+2022-02-28 05:59:46,855 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:46,856 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: defer
+2022-02-28 05:59:46,856 INFO    HandlerThread:2383 [handler.py:handle_request_defer():154] handle defer: 0
+2022-02-28 05:59:46,857 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: defer
+2022-02-28 05:59:46,857 INFO    SenderThread:2383 [sender.py:send_request_defer():388] handle sender defer: 0
+2022-02-28 05:59:46,857 INFO    SenderThread:2383 [sender.py:transition_state():392] send defer: 1
+2022-02-28 05:59:46,858 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: defer
+2022-02-28 05:59:46,858 INFO    HandlerThread:2383 [handler.py:handle_request_defer():154] handle defer: 1
+2022-02-28 05:59:46,965 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: defer
+2022-02-28 05:59:46,965 INFO    SenderThread:2383 [sender.py:send_request_defer():388] handle sender defer: 1
+2022-02-28 05:59:46,965 INFO    SenderThread:2383 [sender.py:transition_state():392] send defer: 2
+2022-02-28 05:59:46,965 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:46,965 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:46,965 DEBUG   SenderThread:2383 [sender.py:send():235] send: stats
+2022-02-28 05:59:46,966 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: defer
+2022-02-28 05:59:46,966 INFO    HandlerThread:2383 [handler.py:handle_request_defer():154] handle defer: 2
+2022-02-28 05:59:46,966 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: defer
+2022-02-28 05:59:46,966 INFO    SenderThread:2383 [sender.py:send_request_defer():388] handle sender defer: 2
+2022-02-28 05:59:46,966 INFO    SenderThread:2383 [sender.py:transition_state():392] send defer: 3
+2022-02-28 05:59:46,966 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: defer
+2022-02-28 05:59:46,966 INFO    HandlerThread:2383 [handler.py:handle_request_defer():154] handle defer: 3
+2022-02-28 05:59:46,966 DEBUG   SenderThread:2383 [sender.py:send():235] send: summary
+2022-02-28 05:59:46,966 INFO    SenderThread:2383 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-28 05:59:46,966 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: defer
+2022-02-28 05:59:46,967 INFO    SenderThread:2383 [sender.py:send_request_defer():388] handle sender defer: 3
+2022-02-28 05:59:46,967 INFO    SenderThread:2383 [sender.py:transition_state():392] send defer: 4
+2022-02-28 05:59:46,967 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: defer
+2022-02-28 05:59:46,967 INFO    HandlerThread:2383 [handler.py:handle_request_defer():154] handle defer: 4
+2022-02-28 05:59:46,967 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: defer
+2022-02-28 05:59:46,967 INFO    SenderThread:2383 [sender.py:send_request_defer():388] handle sender defer: 4
+2022-02-28 05:59:47,066 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:47,266 INFO    SenderThread:2383 [sender.py:transition_state():392] send defer: 5
+2022-02-28 05:59:47,266 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:47,266 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: defer
+2022-02-28 05:59:47,267 INFO    HandlerThread:2383 [handler.py:handle_request_defer():154] handle defer: 5
+2022-02-28 05:59:47,267 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: defer
+2022-02-28 05:59:47,267 INFO    SenderThread:2383 [sender.py:send_request_defer():388] handle sender defer: 5
+2022-02-28 05:59:47,267 INFO    SenderThread:2383 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-02-28 05:59:47,368 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:47,613 INFO    SenderThread:2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:47,614 INFO    SenderThread:2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:47,614 INFO    SenderThread:2383 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/config.yaml
+2022-02-28 05:59:47,615 INFO    SenderThread:2383 [dir_watcher.py:finish():313] scan: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files
+2022-02-28 05:59:47,615 INFO    SenderThread:2383 [dir_watcher.py:finish():327] scan save: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-metadata.json wandb-metadata.json
+2022-02-28 05:59:47,615 INFO    SenderThread:2383 [dir_watcher.py:finish():327] scan save: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/conda-environment.yaml conda-environment.yaml
+2022-02-28 05:59:47,616 INFO    SenderThread:2383 [dir_watcher.py:finish():327] scan save: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/config.yaml config.yaml
+2022-02-28 05:59:47,616 INFO    SenderThread:2383 [dir_watcher.py:finish():327] scan save: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log output.log
+2022-02-28 05:59:47,624 INFO    SenderThread:2383 [dir_watcher.py:finish():327] scan save: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/requirements.txt requirements.txt
+2022-02-28 05:59:47,624 INFO    SenderThread:2383 [dir_watcher.py:finish():327] scan save: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json wandb-summary.json
+2022-02-28 05:59:47,626 INFO    SenderThread:2383 [sender.py:transition_state():392] send defer: 6
+2022-02-28 05:59:47,626 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:47,628 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: defer
+2022-02-28 05:59:47,628 INFO    HandlerThread:2383 [handler.py:handle_request_defer():154] handle defer: 6
+2022-02-28 05:59:47,628 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: defer
+2022-02-28 05:59:47,628 INFO    SenderThread:2383 [sender.py:send_request_defer():388] handle sender defer: 6
+2022-02-28 05:59:47,628 INFO    SenderThread:2383 [file_pusher.py:finish():177] shutting down file pusher
+2022-02-28 05:59:47,728 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:47,728 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:47,831 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:47,831 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:47,933 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:47,933 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:48,035 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:48,035 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:48,137 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:48,137 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:48,240 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:48,240 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:48,274 INFO    Thread-13 :2383 [upload_job.py:push():137] Uploaded file /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/config.yaml
+2022-02-28 05:59:48,277 INFO    Thread-15 :2383 [upload_job.py:push():137] Uploaded file /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/requirements.txt
+2022-02-28 05:59:48,287 INFO    Thread-12 :2383 [upload_job.py:push():137] Uploaded file /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/conda-environment.yaml
+2022-02-28 05:59:48,296 INFO    Thread-14 :2383 [upload_job.py:push():137] Uploaded file /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/output.log
+2022-02-28 05:59:48,342 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:48,342 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:48,377 INFO    Thread-16 :2383 [upload_job.py:push():137] Uploaded file /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/files/wandb-summary.json
+2022-02-28 05:59:48,444 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:48,444 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:48,547 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:48,547 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:48,577 INFO    Thread-7  :2383 [sender.py:transition_state():392] send defer: 7
+2022-02-28 05:59:48,578 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: defer
+2022-02-28 05:59:48,578 INFO    HandlerThread:2383 [handler.py:handle_request_defer():154] handle defer: 7
+2022-02-28 05:59:48,578 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: defer
+2022-02-28 05:59:48,578 INFO    SenderThread:2383 [sender.py:send_request_defer():388] handle sender defer: 7
+2022-02-28 05:59:48,649 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:49,202 INFO    SenderThread:2383 [sender.py:transition_state():392] send defer: 8
+2022-02-28 05:59:49,202 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:49,203 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: defer
+2022-02-28 05:59:49,204 INFO    HandlerThread:2383 [handler.py:handle_request_defer():154] handle defer: 8
+2022-02-28 05:59:49,204 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: defer
+2022-02-28 05:59:49,204 INFO    SenderThread:2383 [sender.py:send_request_defer():388] handle sender defer: 8
+2022-02-28 05:59:49,205 INFO    SenderThread:2383 [sender.py:transition_state():392] send defer: 9
+2022-02-28 05:59:49,206 DEBUG   SenderThread:2383 [sender.py:send():235] send: final
+2022-02-28 05:59:49,207 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: defer
+2022-02-28 05:59:49,207 DEBUG   SenderThread:2383 [sender.py:send():235] send: footer
+2022-02-28 05:59:49,208 INFO    HandlerThread:2383 [handler.py:handle_request_defer():154] handle defer: 9
+2022-02-28 05:59:49,208 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: defer
+2022-02-28 05:59:49,209 INFO    SenderThread:2383 [sender.py:send_request_defer():388] handle sender defer: 9
+2022-02-28 05:59:49,305 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-28 05:59:49,306 DEBUG   SenderThread:2383 [sender.py:send_request():249] send_request: poll_exit
+2022-02-28 05:59:49,306 INFO    SenderThread:2383 [file_pusher.py:join():182] waiting for file pusher
+2022-02-28 05:59:49,744 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: get_summary
+2022-02-28 05:59:49,746 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: sampled_history
+2022-02-28 05:59:49,750 DEBUG   HandlerThread:2383 [handler.py:handle_request():131] handle_request: shutdown
+2022-02-28 05:59:49,750 INFO    HandlerThread:2383 [handler.py:finish():739] shutting down handler
+2022-02-28 05:59:50,207 INFO    WriterThread:2383 [datastore.py:close():281] close: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220228_054940-2bsmucci/run-2bsmucci.wandb
+2022-02-28 05:59:50,742 INFO    SenderThread:2383 [sender.py:finish():1075] shutting down sender
+2022-02-28 05:59:50,742 INFO    SenderThread:2383 [file_pusher.py:finish():177] shutting down file pusher
+2022-02-28 05:59:50,742 INFO    SenderThread:2383 [file_pusher.py:join():182] waiting for file pusher
+2022-02-28 05:59:50,746 INFO    MainThread:2383 [internal.py:handle_exit():79] Internal process exited

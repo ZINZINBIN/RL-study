@@ -2,6 +2,7 @@ import gym
 import random
 import math
 import wandb
+import gc
 from torch import long
 import torch
 import matplotlib.pyplot as plt
@@ -15,15 +16,15 @@ from tqdm import tqdm
 
 parser = argparse.ArgumentParser(description="training atari with DDQN")
 parser.add_argument("--batch_size", type = int, default = 64)
-parser.add_argument("--memory_size", type = int, default = 1000000)
-parser.add_argument("--lr", type = float, default = 1e-3)
+parser.add_argument("--memory_size", type = int, default = 100000)
+parser.add_argument("--lr", type = float, default = 1e-1)
 parser.add_argument("--gamma", type = float, default = 0.999)
 parser.add_argument("--eps_start", type = float, default = 0.9)
 parser.add_argument("--eps_end", type = float, default = 0.05)
 parser.add_argument("--eps_decay", type = float, default = 200)
-parser.add_argument("--target_update", type = int, default = 10)
+parser.add_argument("--target_update", type = int, default = 8)
 parser.add_argument("--gpu_num", type = int, default = 0)
-parser.add_argument("--num_episode", type = int, default = 1024)
+parser.add_argument("--num_episode", type = int, default = 128)
 parser.add_argument("--wandb_save_name", type = str, default = "DQN-exp001")
 
 args = vars(parser.parse_args())
@@ -87,7 +88,8 @@ target_net.to(device)
 target_net.eval()
 
 # opimizer and memory loaded
-optimizer = torch.optim.RMSprop(policy_net.parameters(), lr = lr)
+# optimizer = torch.optim.RMSprop(policy_net.parameters(), lr = lr)
+optimizer = torch.optim.AdamW(policy_net.parameters(), lr = lr)
 memory = ReplayMemory(memory_size)
 
 def optimize_model():
@@ -158,16 +160,14 @@ if __name__ == "__main__":
         "eps_start":EPS_START,
         "eps_end":EPS_END,
         "eps_decay":EPS_DECAY,
-        "target_update":TARGET_UPDATE
+        "target_update":TARGET_UPDATE,
+        "optimizer":"AdamW"
     }
 
     # training process for each episode
     for i_episode in tqdm(range(num_episode)):
         env.reset()
-        last_screen = get_screen(env)
-        current_screen = get_screen(env)
-
-        state = current_screen - last_screen
+        state = get_screen(env)
 
         mean_reward = []
         mean_loss = []
@@ -178,11 +178,9 @@ if __name__ == "__main__":
             _, reward, done, _ = env.step(action.item())
 
             reward = torch.tensor([reward], device = device)
-            last_screen = current_screen
-            current_screen = get_screen(env)
 
             if not done:
-                next_state = current_screen - last_screen
+                next_state = get_screen(env)
 
             else:
                 next_state = None
@@ -213,8 +211,11 @@ if __name__ == "__main__":
 
         wandb.log({"mean_loss":mean_loss, "mean_reward":mean_reward})
 
-        # optional
-        # wandb.watch(policy_net)
+        # memory cache delete
+        gc.collect()
+
+        # torch cache delete
+        torch.cuda.empty_cache()
 
     print("training policy network and target network done....!")
 

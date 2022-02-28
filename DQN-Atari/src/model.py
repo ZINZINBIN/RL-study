@@ -1,9 +1,10 @@
 import torch 
 import torch.nn as nn
 from torch.autograd import Variable
+from pytorch_model_summary import summary
 
 class DQN(nn.Module):
-    def __init__(self, h, w, output_dims):
+    def __init__(self, h, w, output_dims, hidden_dims = 128):
         super(DQN, self).__init__()
         self.conv1 = nn.Conv2d(3, 32, kernel_size = 8, stride = 4)
         self.bn1 = nn.BatchNorm2d(32)
@@ -16,7 +17,13 @@ class DQN(nn.Module):
         convh = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(h, kernel_size = 8, stride = 4), 4, 2), 3, 1)
         linear_input_dim = convw * convh * 64
 
-        self.head = nn.Linear(linear_input_dim, output_dims)
+        self.hidden_dims = hidden_dims
+
+        self.head = nn.Sequential(
+            nn.Linear(linear_input_dim, hidden_dims),
+            nn.ReLU(),
+            nn.Linear(hidden_dims, output_dims)
+        )
         
     def _conv2d_size_out(self, size, kernel_size = 5, stride = 2):
         outputs = (size - (kernel_size - 1) - 1) // stride + 1
@@ -29,6 +36,10 @@ class DQN(nn.Module):
         x = self.head(x.view(x.size(0), -1))
 
         return x
+
+    def summary(self, sample_inputs):
+        print(summary(self, sample_inputs, max_depth = None, show_parent_layers=True, show_input = True))
+
 
 class DuelingDQN(nn.Module):
     def __init__(self, h : int, w : int, n_actions : int, output_dims : int, fc_dims : int = 128):
