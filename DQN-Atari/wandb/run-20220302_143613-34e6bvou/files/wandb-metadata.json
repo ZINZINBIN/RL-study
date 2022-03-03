@@ -1,0 +1,24 @@
+{
+    "os": "Linux-4.15.0-167-generic-x86_64-with-glibc2.27",
+    "python": "3.9.10",
+    "heartbeatAt": "2022-03-02T14:36:14.196924",
+    "startedAt": "2022-03-02T14:36:13.471557",
+    "docker": null,
+    "gpu": "NVIDIA TITAN Xp",
+    "gpu_count": 2,
+    "cpu_count": 16,
+    "cuda": "10.2.89",
+    "args": [],
+    "state": "running",
+    "program": "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/train_noise_dqn.py",
+    "codePath": "DQN-Atari/train_noise_dqn.py",
+    "git": {
+        "remote": "https://github.com/ZINZINBIN/RL-study.git",
+        "commit": "afd53cb83ba2f1a1c61b27aee005c92d6e9cc482"
+    },
+    "email": "asdwlstn@naver.com",
+    "root": "/home/zinzinbin/codes_for_study/RL/RL-study",
+    "host": "diya-server",
+    "username": "zinzinbin",
+    "executable": "/home/zinzinbin/.conda/envs/rl-env/bin/python3"
+}

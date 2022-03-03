@@ -8,7 +8,7 @@ from src.utility import *
 from src.evaluate import *
 
 parser = argparse.ArgumentParser(description="test model")
-parser.add_argument("--weight_dir", type = str, default = "./weights/dqn_best_exp001.pt")
+parser.add_argument("--weight_dir", type = str, default = "./weights/noise_dqn_best_DQN.pt")
 parser.add_argument("--game", type = str, default = 'Breakout-v0')
 args = vars(parser.parse_args())
 
@@ -36,7 +36,8 @@ if __name__ == "__main__":
     env.close()
 
     # model loaded
-    policy_net = DQN(screen_height, screen_width, n_actions)
+    # policy_net = DQN(screen_height, screen_width, n_actions)
+    policy_net = NoiseDQN(screen_height, screen_width, n_actions)
     policy_net.load_state_dict(torch.load(args['weight_dir'], map_location=device))
     policy_net.to(device)
     policy_net.eval()

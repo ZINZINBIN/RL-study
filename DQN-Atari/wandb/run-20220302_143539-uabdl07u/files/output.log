@@ -1,0 +1,8 @@
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+  0%|                                                                                                                                                                                                | 0/128 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/train_noise_dqn.py", line 212, in <module>
+    reward_new, loss_new = optimize_model(beta)
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/train_noise_dqn.py", line 141, in optimize_model
+    prios = prios * weights[non_final_mask.detach().cpu().numpy()]
+UnboundLocalError: local variable 'prios' referenced before assignment
