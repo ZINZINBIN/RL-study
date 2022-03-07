@@ -254,3 +254,4 @@ class CategoricalDQN(nn.Module):
     def reset_noise(self):
         self.noisy1.reset_noise()
         self.noisy2.reset_noise()
+

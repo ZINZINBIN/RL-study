@@ -84,8 +84,8 @@ init_screen = get_screen(env)
 _,_,screen_height, screen_width = init_screen.shape
 
 # Network loaded
-policy_net = NoiseDQN(screen_height, screen_width, n_actions)
-target_net = NoiseDQN(screen_height, screen_width, n_actions)
+policy_net = CategoricalDQN(screen_height, screen_width, n_actions)
+target_net = CategoricalDQN(screen_height, screen_width, n_actions)
 target_net.load_state_dict(policy_net.state_dict())
 
 # gpu allocation(device)
