@@ -238,20 +238,98 @@ class CategoricalDQN(nn.Module):
 
         x = nn.functional.relu(self.noisy1(x.view(x.size(0), -1)))
         x = self.noisy2(x)
-        x = nn.functional.softmax(x.view(-1, self.output_dims * self.num_atoms)).view(-1, self.output_dims, self.num_atoms)
+        x = nn.functional.softmax(x.view(-1, self.num_atoms), 1).view(-1, self.output_dims, self.num_atoms)
         return x
 
     def summary(self, sample_inputs):
         print(summary(self, sample_inputs, max_depth = None, show_parent_layers=True, show_input = True))
 
-    def act(self, state):
-        state = Variable(torch.FloatTensor(state).unsqueeze(0), volatile = True) # forward만 진행 : volatile = true
-        dist = self.forward(state).data.cpu()
+    def act(self, state:torch.Tensor):
+        with torch.no_grad():
+            # state = Variable(state, volatile = True) # forward만 진행 : volatile = true
+            dist = self.forward(state).data.cpu()
         dist = dist * torch.linspace(self.V_min, self.V_max, self.num_atoms)
-        action = dist.sum(2).max(1)[1].numpy()[0]
+        # action = dist.sum(2).max(1)[1].numpy()[0]
+        action = dist.sum(2).max(1)[1].cpu()
+
         return action
 
     def reset_noise(self):
         self.noisy1.reset_noise()
         self.noisy2.reset_noise()
 
+# RainbowDQN : DDQN + Dueling DQN + PER + Distributed DQN
+# 다양한 DQN 알고리즘을 결합하여 성능을 끌어올린 모델
+class RainbowDQN(nn.Module):
+    def __init__(self, h : int, w : int, output_dims : int, num_atoms : int, V_min :int, V_max : int, hidden_dims = 128):
+        super(RainbowDQN, self).__init__()
+        self.conv1 = nn.Conv2d(3, 32, kernel_size = 8, stride = 4)
+        self.bn1 = nn.BatchNorm2d(32)
+        self.conv2 = nn.Conv2d(32, 64, kernel_size = 4, stride = 2)
+        self.bn2 = nn.BatchNorm2d(64)
+        self.conv3 = nn.Conv2d(64,64,kernel_size = 3, stride = 1)
+        self.bn3 = nn.BatchNorm2d(64)
+
+        convw = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(w, kernel_size = 8, stride = 4), 4, 2), 3, 1)
+        convh = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(h, kernel_size = 8, stride = 4), 4, 2), 3, 1)
+        linear_input_dim = convw * convh * 64
+
+        self.output_dims = output_dims
+        self.hidden_dims = hidden_dims
+        self.num_atoms = num_atoms
+        self.V_min = V_min
+        self.V_max = V_max
+
+        # value approximator
+        self.noisy1_v = NoisyLinear(linear_input_dim, hidden_dims)
+        self.noisy2_v = NoisyLinear(hidden_dims, num_atoms)
+
+        # advantage approximator
+        self.noisy1_ad = NoisyLinear(linear_input_dim, hidden_dims)
+        self.noisy2_ad = NoisyLinear(hidden_dims, output_dims * num_atoms)
+       
+    def _conv2d_size_out(self, size, kernel_size = 5, stride = 2):
+        outputs = (size - (kernel_size - 1) - 1) // stride + 1
+        return outputs
+
+    def forward(self, x:torch.Tensor):
+
+        batch_size = x.size(0)
+
+        # process 1 : inputs -> embedding vector
+        x = nn.functional.relu(self.bn1(self.conv1(x)))
+        x = nn.functional.relu(self.bn2(self.conv2(x)))
+        x = nn.functional.relu(self.bn3(self.conv3(x)))
+
+        # process 2 : separate value and advantage approximator
+        value = nn.functional.relu(self.noisy1_v(x.view(x.size(0), -1)))
+        value = self.noisy2_v(value)
+
+        advantage = nn.functional.relu(self.noisy1_ad(x.view(x.size(0), -1)))
+        advantage = self.noisy2_ad(advantage)
+
+        value = value.view(batch_size, 1, self.output_dims)
+        advantage = advantage.view(batch_size, self.output_dims, self.num_atoms)
+
+        x = value + advantage - advantage.mean(1, keepdim=True)
+        x = nn.functional.softmax(x.view(-1, self.num_atoms), 1).view(-1, self.num_actions, self.num_atoms)
+
+        return x
+
+    def summary(self, sample_inputs):
+        print(summary(self, sample_inputs, max_depth = None, show_parent_layers=True, show_input = True))
+
+    def act(self, state:torch.Tensor):
+        with torch.no_grad():
+            dist = self.forward(state).data.cpu()
+        dist = dist * torch.linspace(self.V_min, self.V_max, self.num_atoms)
+        action = dist.sum(2).max(1)[1].numpy()[0]
+
+        return action
+
+    def reset_noise(self):
+        self.noisy1_v.reset_noise()
+        self.noisy2_v.reset_noise()
+        self.noisy1_ad.reset_noise()
+        self.noisy2_ad.reset_noise()
+   

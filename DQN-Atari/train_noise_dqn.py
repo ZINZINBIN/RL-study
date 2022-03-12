@@ -207,7 +207,7 @@ if __name__ == "__main__":
                 next_state = None
             
             # memory에 transition 저장
-            memory.push(state, action, next_state, reward)
+            memory.push(state, action, next_state, reward, done)
 
             state = next_state
 

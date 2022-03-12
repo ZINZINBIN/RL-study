@@ -1,0 +1,16 @@
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+  0%|                                                                                                                                     | 0/64 [12:31<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/train_categorical_dqn.py", line 154, in <module>
+    loss = optimize_categorical_DQN(
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/src/train.py", line 203, in optimize_categorical_DQN
+    dist = current_net(state)
+  File "/home/zinzinbin/.conda/envs/rl-env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/src/model.py", line 239, in forward
+    x = nn.functional.relu(self.noisy1(x.view(x.size(0), -1)))
+  File "/home/zinzinbin/.conda/envs/rl-env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/src/model.py", line 121, in forward
+    weight = self.weight_mu + self.weight_sigma.mul(Variable(self.weight_epsilon))
+RuntimeError: CUDA out of memory. Tried to allocate 20.00 MiB (GPU 0; 11.91 GiB total capacity; 10.87 GiB already allocated; 20.94 MiB free; 11.01 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

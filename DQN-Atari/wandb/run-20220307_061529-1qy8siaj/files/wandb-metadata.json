@@ -1,0 +1,24 @@
+{
+    "os": "Linux-4.15.0-167-generic-x86_64-with-glibc2.27",
+    "python": "3.9.10",
+    "heartbeatAt": "2022-03-07T06:15:30.158806",
+    "startedAt": "2022-03-07T06:15:29.329177",
+    "docker": null,
+    "gpu": "NVIDIA TITAN Xp",
+    "gpu_count": 2,
+    "cpu_count": 16,
+    "cuda": "10.2.89",
+    "args": [],
+    "state": "running",
+    "program": "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/train_categorical_dqn.py",
+    "codePath": "DQN-Atari/train_categorical_dqn.py",
+    "git": {
+        "remote": "https://github.com/ZINZINBIN/RL-study.git",
+        "commit": "699628ae9bb9d2d328ac180f626e039edcf25fdb"
+    },
+    "email": "asdwlstn@naver.com",
+    "root": "/home/zinzinbin/codes_for_study/RL/RL-study",
+    "host": "diya-server",
+    "username": "zinzinbin",
+    "executable": "/home/zinzinbin/.conda/envs/rl-env/bin/python3"
+}

@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import numpy as np
 from src.buffer import ReplayMemory, Transition
-from src.utility import EPS_DECAY_DEFAULT, EPS_END_DEFAULT, EPS_START_DEFAULT, get_screen, select_action_from_Q_Network
+from src.utility import EPS_DECAY_DEFAULT, EPS_END_DEFAULT, EPS_START_DEFAULT, get_screen, select_action_from_Q_Network, projection_distribution
 from typing import Optional
 from tqdm import tqdm
 from itertools import count
@@ -163,3 +163,61 @@ def train_dqn(
 
     print("training policy network and target network done....!")
     env.close()
+
+
+# Categorical DQN Optimize
+# can also be used to Rainbow DQN
+def optimize_categorical_DQN(
+    memory = None, 
+    target_net : torch.nn.Module = None, 
+    current_net : torch.nn.Module = None,
+    optimizer : torch.optim.Optimizer = None,
+    beta :float = 0.4, 
+    gamma : float = 0.9,
+    batch_size : int = 32,
+    device : str = 'cpu',
+    ):
+
+    if len(memory) < batch_size:
+        return None, None
+
+    transitions = memory.sample(batch_size)
+    batch = Transition(*zip(*transitions))
+
+    state = torch.cat(batch.state).to(device)
+    action = torch.cat(batch.action).to(device)
+    reward = torch.cat(batch.reward).to(device)
+    done = torch.cat(batch.done).to(device)
+
+    non_final_mask = torch.tensor(
+        tuple(
+            map(lambda s : s is not None,batch.next_state)
+        ),
+        device = device,
+        dtype = torch.bool
+    )
+
+    next_state = torch.zeros_like(state, device = device)
+    next_state[non_final_mask] = torch.cat([s for s in batch.next_state if s is not None]).to(device)
+    
+    proj_dist = projection_distribution(target_net, next_state, reward, done, device)
+    dist = current_net(state)
+    action_batch = action.unsqueeze(1).unsqueeze(1).expand(batch_size, 1, current_net.num_atoms)
+    dist = dist.gather(1, action_batch).squeeze(1)
+    dist.data.clamp_(0.01, 0.99)
+
+    loss = - (torch.autograd.Variable(proj_dist.to(device)) * dist.to(device).log()).sum(1).mean()
+
+    optimizer.zero_grad()
+    loss.backward()
+
+    # gradient clipping 
+    for param in current_net.parameters():
+        param.grad.data.clamp_(-1,1) 
+
+    optimizer.step()
+
+    current_net.reset_noise()
+    target_net.reset_noise()
+
+    return loss

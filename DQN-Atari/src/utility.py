@@ -89,7 +89,7 @@ def plot_model_struture(model, input_shape):
 # A Distributional Perspective on Reinforcement Learning
 # projection distribution
 
-def projection_distribution(target_network, next_state, rewards, dones):
+def projection_distribution(target_network:torch.nn.Module, next_state, rewards, dones, device = 'cpu'):
 
     assert hasattr(target_network, 'V_max')
     assert hasattr(target_network, 'V_min')
@@ -101,7 +101,7 @@ def projection_distribution(target_network, next_state, rewards, dones):
 
     batch_size = next_state.size(0)
 
-    delta_z = float(V_max, V_min) / (num_atoms - 1)
+    delta_z = float(V_max - V_min) / (num_atoms - 1)
     support = torch.linspace(V_min, V_max, num_atoms)
 
     next_dist = target_network(next_state).data.cpu() * support
@@ -109,12 +109,12 @@ def projection_distribution(target_network, next_state, rewards, dones):
     next_action = next_action.unsqueeze(1).unsqueeze(1).expand(next_dist.size(0), 1, next_dist.size(2))
     next_dist = next_dist.gather(1, next_action).squeeze(1)
 
-    rewards = rewards.unsqueeze(1).expand_as(next_dist)
-    dones = dones.unsqueeze(1).expand_as(next_dist)
-    support = support.unsqueeze(0).expand_as(next_dist)
+    rewards = rewards.unsqueeze(1).expand_as(next_dist).to(device)
+    dones = dones.unsqueeze(1).expand_as(next_dist).to(device)
+    support = support.unsqueeze(0).expand_as(next_dist).to(device)
 
     Tz = rewards + (1-dones) * 0.99 * support
-    Tz = Tz.clamp(min=V_min, max = V_max)
+    Tz = Tz.clamp(min=V_min, max = V_max).cpu()
 
     b = (Tz - V_min) / delta_z
     l = b.floor().long()
@@ -128,10 +128,5 @@ def projection_distribution(target_network, next_state, rewards, dones):
     return proj_dist
 
 # update target network
-def update_target_network(current_network : nn.Module, target_network : nn.Module):
+def update_target_network(current_network : torch.nn.Module, target_network : torch.nn.Module):
     target_network.load_state_dict(current_network.state_dict())
-
-def compute_kl_divergence(pred : torch.Tensor, loss : torch.Tensor):
-    loss = 0
-
-    return loss

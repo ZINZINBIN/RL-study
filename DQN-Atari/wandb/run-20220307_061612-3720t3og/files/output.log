@@ -1,0 +1,12 @@
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+  0%|                                                                                                                                    | 0/128 [00:00<?, ?it/s]/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/src/model.py:241: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = nn.functional.softmax(x.view(-1, self.output_dims * self.num_atoms)).view(-1, self.output_dims, self.num_atoms)
+  0%|                                                                                                                                    | 0/128 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/train_categorical_dqn.py", line 155, in <module>
+    loss = optimize_categorical_DQN(
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/src/train.py", line 206, in optimize_categorical_DQN
+    proj_dist = projection_distribution(target_net, next_state_batch, reward_batch, done_batch)
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/src/utility.py", line 116, in projection_distribution
+    Tz = rewards + (1-dones) * 0.99 * support
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!

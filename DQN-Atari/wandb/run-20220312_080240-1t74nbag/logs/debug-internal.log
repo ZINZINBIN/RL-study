@@ -1,0 +1,101 @@
+2022-03-12 08:02:41,147 INFO    MainThread:1810 [internal.py:wandb_internal():89] W&B internal server running at pid: 1810, started at: 2022-03-12 08:02:41.147246
+2022-03-12 08:02:41,148 INFO    WriterThread:1810 [datastore.py:open_for_write():77] open: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/run-1t74nbag.wandb
+2022-03-12 08:02:41,149 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: check_version
+2022-03-12 08:02:41,149 DEBUG   SenderThread:1810 [sender.py:send():235] send: header
+2022-03-12 08:02:41,149 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: check_version
+2022-03-12 08:02:42,564 DEBUG   SenderThread:1810 [sender.py:send():235] send: run
+2022-03-12 08:02:43,097 INFO    SenderThread:1810 [dir_watcher.py:__init__():169] watching files in: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files
+2022-03-12 08:02:43,097 INFO    SenderThread:1810 [sender.py:_start_run_threads():809] run started: 1t74nbag with start time 1647072160
+2022-03-12 08:02:43,097 DEBUG   SenderThread:1810 [sender.py:send():235] send: summary
+2022-03-12 08:02:43,097 INFO    SenderThread:1810 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-03-12 08:02:43,097 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: run_start
+2022-03-12 08:02:43,099 DEBUG   HandlerThread:1810 [meta.py:__init__():36] meta init
+2022-03-12 08:02:43,099 DEBUG   HandlerThread:1810 [meta.py:__init__():50] meta init done
+2022-03-12 08:02:43,099 DEBUG   HandlerThread:1810 [meta.py:probe():210] probe
+2022-03-12 08:02:43,105 DEBUG   HandlerThread:1810 [meta.py:_setup_git():200] setup git
+2022-03-12 08:02:43,128 DEBUG   HandlerThread:1810 [meta.py:_setup_git():207] setup git done
+2022-03-12 08:02:43,128 DEBUG   HandlerThread:1810 [meta.py:_save_pip():54] save pip
+2022-03-12 08:02:43,128 DEBUG   HandlerThread:1810 [meta.py:_save_pip():68] save pip done
+2022-03-12 08:02:43,128 DEBUG   HandlerThread:1810 [meta.py:_save_conda():75] save conda
+2022-03-12 08:02:44,098 INFO    Thread-8  :1810 [dir_watcher.py:_on_file_created():217] file/dir created: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/conda-environment.yaml
+2022-03-12 08:02:44,098 INFO    Thread-8  :1810 [dir_watcher.py:_on_file_created():217] file/dir created: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/requirements.txt
+2022-03-12 08:02:44,098 INFO    Thread-8  :1810 [dir_watcher.py:_on_file_created():217] file/dir created: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/wandb-summary.json
+2022-03-12 08:02:44,493 DEBUG   HandlerThread:1810 [meta.py:_save_conda():85] save conda done
+2022-03-12 08:02:44,493 DEBUG   HandlerThread:1810 [meta.py:probe():248] probe done
+2022-03-12 08:02:44,495 DEBUG   SenderThread:1810 [sender.py:send():235] send: files
+2022-03-12 08:02:44,495 INFO    SenderThread:1810 [sender.py:_save_file():944] saving file wandb-metadata.json with policy now
+2022-03-12 08:02:44,498 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:02:44,498 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:02:44,711 DEBUG   SenderThread:1810 [sender.py:send():235] send: run
+2022-03-12 08:02:44,955 INFO    SenderThread:1810 [sender.py:send_run():707] updated run: 1t74nbag
+2022-03-12 08:02:45,098 INFO    Thread-8  :1810 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/conda-environment.yaml
+2022-03-12 08:02:45,098 INFO    Thread-8  :1810 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/config.yaml
+2022-03-12 08:02:45,098 INFO    Thread-8  :1810 [dir_watcher.py:_on_file_created():217] file/dir created: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/wandb-metadata.json
+2022-03-12 08:02:45,098 INFO    Thread-8  :1810 [dir_watcher.py:_on_file_created():217] file/dir created: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/output.log
+2022-03-12 08:02:46,249 INFO    Thread-11 :1810 [upload_job.py:push():137] Uploaded file /tmp/tmp_p3jdffswandb/fe2pf2hm-wandb-metadata.json
+2022-03-12 08:02:47,099 INFO    Thread-8  :1810 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/output.log
+2022-03-12 08:02:59,712 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:02:59,712 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:03:11,643 DEBUG   SenderThread:1810 [sender.py:send():235] send: stats
+2022-03-12 08:03:15,199 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:03:15,199 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:03:30,411 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:03:30,411 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:03:42,155 DEBUG   SenderThread:1810 [sender.py:send():235] send: stats
+2022-03-12 08:03:45,638 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:03:45,639 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:04:00,862 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:04:00,862 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:04:12,669 DEBUG   SenderThread:1810 [sender.py:send():235] send: stats
+2022-03-12 08:04:16,612 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:04:16,612 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:04:31,840 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:04:31,841 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:04:43,197 DEBUG   SenderThread:1810 [sender.py:send():235] send: stats
+2022-03-12 08:04:47,373 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:04:47,373 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:05:02,602 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:05:02,603 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:05:13,710 DEBUG   SenderThread:1810 [sender.py:send():235] send: stats
+2022-03-12 08:05:17,870 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:05:17,870 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:05:33,102 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:05:33,103 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:05:44,216 DEBUG   SenderThread:1810 [sender.py:send():235] send: stats
+2022-03-12 08:05:48,400 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:05:48,400 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:06:04,111 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:06:04,112 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:06:14,731 DEBUG   SenderThread:1810 [sender.py:send():235] send: stats
+2022-03-12 08:06:19,341 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:06:19,341 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:06:34,831 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:06:34,831 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:06:45,253 DEBUG   SenderThread:1810 [sender.py:send():235] send: stats
+2022-03-12 08:06:50,061 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:06:50,062 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:07:05,792 DEBUG   HandlerThread:1810 [handler.py:handle_request():131] handle_request: stop_status
+2022-03-12 08:07:05,792 DEBUG   SenderThread:1810 [sender.py:send_request():249] send_request: stop_status
+2022-03-12 08:07:15,766 DEBUG   SenderThread:1810 [sender.py:send():235] send: stats
+2022-03-12 08:07:20,347 WARNING MainThread:1810 [internal.py:wandb_internal():152] Internal process interrupt: 1
+2022-03-12 08:07:22,112 WARNING MainThread:1810 [internal.py:wandb_internal():152] Internal process interrupt: 2
+2022-03-12 08:07:22,112 ERROR   MainThread:1810 [internal.py:wandb_internal():155] Internal process interrupted.
+2022-03-12 08:07:22,767 INFO    WriterThread:1810 [datastore.py:close():281] close: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/run-1t74nbag.wandb
+2022-03-12 08:07:23,020 INFO    SenderThread:1810 [sender.py:finish():1075] shutting down sender
+2022-03-12 08:07:23,020 INFO    SenderThread:1810 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-03-12 08:07:23,027 INFO    HandlerThread:1810 [handler.py:finish():739] shutting down handler
+2022-03-12 08:07:23,125 INFO    SenderThread:1810 [dir_watcher.py:finish():313] scan: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files
+2022-03-12 08:07:23,125 INFO    SenderThread:1810 [dir_watcher.py:finish():327] scan save: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/wandb-metadata.json wandb-metadata.json
+2022-03-12 08:07:23,125 INFO    SenderThread:1810 [dir_watcher.py:finish():327] scan save: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/conda-environment.yaml conda-environment.yaml
+2022-03-12 08:07:23,126 INFO    SenderThread:1810 [dir_watcher.py:finish():327] scan save: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/config.yaml config.yaml
+2022-03-12 08:07:23,126 INFO    SenderThread:1810 [dir_watcher.py:finish():327] scan save: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/output.log output.log
+2022-03-12 08:07:23,127 INFO    SenderThread:1810 [dir_watcher.py:finish():327] scan save: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/requirements.txt requirements.txt
+2022-03-12 08:07:23,128 INFO    SenderThread:1810 [dir_watcher.py:finish():327] scan save: /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/wandb-summary.json wandb-summary.json
+2022-03-12 08:07:23,132 INFO    SenderThread:1810 [file_pusher.py:finish():177] shutting down file pusher
+2022-03-12 08:07:23,132 INFO    SenderThread:1810 [file_pusher.py:join():182] waiting for file pusher
+2022-03-12 08:07:23,852 INFO    Thread-13 :1810 [upload_job.py:push():137] Uploaded file /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/config.yaml
+2022-03-12 08:07:23,936 INFO    Thread-14 :1810 [upload_job.py:push():137] Uploaded file /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/output.log
+2022-03-12 08:07:24,209 INFO    Thread-15 :1810 [upload_job.py:push():137] Uploaded file /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/requirements.txt
+2022-03-12 08:07:24,293 INFO    Thread-12 :1810 [upload_job.py:push():137] Uploaded file /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/conda-environment.yaml
+2022-03-12 08:07:24,944 INFO    Thread-16 :1810 [upload_job.py:push():137] Uploaded file /home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/wandb/run-20220312_080240-1t74nbag/files/wandb-summary.json
+2022-03-12 08:07:25,837 INFO    MainThread:1810 [internal.py:handle_exit():79] Internal process exited

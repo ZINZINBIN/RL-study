@@ -1,0 +1,10 @@
+[34m[1mwandb[39m[22m: [33mWARNING[39m Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+  0%|                                                                                                                                    | 0/128 [00:00<?, ?it/s]/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/src/model.py:241: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  x = nn.functional.softmax(x.view(-1, self.output_dims * self.num_atoms)).view(-1, self.output_dims, self.num_atoms)
+  0%|                                                                                                                                    | 0/128 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/train_categorical_dqn.py", line 156, in <module>
+    loss = optimize_categorical_DQN(
+  File "/home/zinzinbin/codes_for_study/RL/RL-study/DQN-Atari/src/train.py", line 212, in optimize_categorical_DQN
+    done_batch = torch.cat(done_batch).to(device)
+TypeError: expected Tensor as element 0 in argument 0, but got int
