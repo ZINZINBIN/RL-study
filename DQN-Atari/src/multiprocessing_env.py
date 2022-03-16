@@ -1,5 +1,6 @@
 import numpy as np
 from multiprocessing import Process, Pipe
+from src.utility import *
 
 def worker(remote, parent_remote, env_fn_wrapper):
     parent_remote.close()
@@ -10,9 +11,11 @@ def worker(remote, parent_remote, env_fn_wrapper):
             ob, reward, done, info = env.step(data)
             if done:
                 ob = env.reset()
+            ob = ob.transpose((2,0,1))
             remote.send((ob, reward, done, info))
         elif cmd == 'reset':
             ob = env.reset()
+            ob = ob.transpose((2,0,1))
             remote.send(ob)
         elif cmd == 'reset_task':
             ob = env.reset_task()
@@ -20,6 +23,11 @@ def worker(remote, parent_remote, env_fn_wrapper):
         elif cmd == 'close':
             remote.close()
             break
+        elif cmd == 'render':
+            ob = env.render(mode = 'rgb_array').transpose((2,0,1))
+            ob = np.ascontiguousarray(ob, dtype = np.float32)
+            ob = torch.from_numpy(ob)
+            remote.send(resize(ob).unsqueeze(0))
         elif cmd == 'get_spaces':
             remote.send((env.observation_space, env.action_space))
         else:
@@ -31,6 +39,16 @@ class VecEnv(object):
         self.observation_space = observation_space
         self.action_space = action_space
     
+    def render(self):
+        self.render_async()
+        return self.render_wait()
+
+    def render_async(self):
+        pass
+
+    def render_wait(self):
+        pass
+
     def reset(self):
         """
         Reset all the environments and return an array of
@@ -72,6 +90,7 @@ class VecEnv(object):
     def step(self, actions):
         self.step_async(actions)
         return self.step_wait()
+
 
     
 class CloudpickleWrapper(object):
@@ -120,6 +139,16 @@ class SubprocVecEnv(VecEnv):
         self.waiting = False
         obs, rews, dones, infos = zip(*results)
         return np.stack(obs), np.stack(rews), np.stack(dones), infos
+
+    def render_async(self):
+        for remote in self.remotes:
+            remote.send(('render', None))
+        self.waiting = True
+    
+    def render_wait(self):
+        results = [remote.recv() for remote in self.remotes]
+        self.waiting = False
+        return torch.cat([result for result in results])
 
     def reset(self):
         for remote in self.remotes:

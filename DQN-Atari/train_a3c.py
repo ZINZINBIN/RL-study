@@ -19,6 +19,7 @@ from tqdm import tqdm
 parser = argparse.ArgumentParser(description="training atari with A3C method")
 parser.add_argument("--hidden_dims", type = int, default = 128)
 parser.add_argument("--lr", type = float, default = 2e-5)
+parser.add_argument("--num_envs", type = int, default = 16)
 parser.add_argument("--weight_decay", type = float, default = 0.95)
 parser.add_argument("--max_grad_norm", type = float, default = 1.0)
 parser.add_argument("--gamma", type = float, default = 0.95)
@@ -35,6 +36,7 @@ args = vars(parser.parse_args())
 
 hidden_dims = args["hidden_dims"]
 lr = args["lr"]
+num_envs = args["num_envs"]
 weight_decay = args["weight_decay"]
 n_steps = args["n_steps"]
 max_frame = args['max_frame']
@@ -47,8 +49,28 @@ max_grad_norm = args['max_grad_norm']
 display = Display(visible=False, size = (400,300))
 display.start()
 
+# using single thread(test)
 env = gym.make('Breakout-v0').unwrapped
 env.reset()
+
+# using multi-thread 
+def make_env():
+    def _thunk():
+        env = gym.make("Breakout-v0").unwrapped
+        return env
+    
+    return _thunk
+
+def get_multi_screen(envs):
+    screen = envs.render(mode = 'rgb_array').transpose((2,0,1))
+    screen = np.ascontiguousarray(screen, dtype = np.float32)
+    screen = torch.from_numpy(screen)
+    return resize(screen).unsqueeze(0)
+
+from src.multiprocessing_env import SubprocVecEnv
+
+envs = [make_env() for i in range(num_envs)]
+envs = SubprocVecEnv(envs)
 
 n_actions = env.action_space.n
 
@@ -134,8 +156,8 @@ if __name__ == "__main__":
 
     # training process for each episode
     for frame_idx in tqdm(range(max_frame)):
-        env.reset()
-        state = get_screen(env)
+        envs.reset()
+        state = envs.render()
 
         log_probs = []
         rewards = []
@@ -146,19 +168,15 @@ if __name__ == "__main__":
 
         # multi-steps  A3C algorithm : to avoid strong correlation between samples
         for n_step in range(n_steps):
+
             state = state.to(device)
             value, dist = a3c(state)
             action = dist.sample()
-            _, reward, done, _ = env.step(action.item())
+            _, reward, done, _ = envs.step(action.cpu().numpy())
 
-            reward = torch.tensor([reward], device = device)
-            
-            if done:
-                break
-            else:
-                next_state = get_screen(env)
-
-            state = next_state
+            reward = torch.from_numpy(reward).to(device)
+            # reward = torch.tensor([reward], device = device)
+            state = envs.render()
 
             log_prob = dist.log_prob(action)
             entropy += dist.entropy().mean()
@@ -166,7 +184,9 @@ if __name__ == "__main__":
             log_probs.append(log_prob)
             values.append(value)
             rewards.append(reward.unsqueeze(1))
-            masks.append(torch.tensor([1-int(done)], device = device).unsqueeze(1))
+            # masks.append(torch.tensor([1-int(done)], device = device).unsqueeze(1))
+
+            masks.append(torch.FloatTensor(1-done).unsqueeze(1).to(device))
 
         # test plot
         if frame_idx % 100 == 0:
@@ -177,9 +197,8 @@ if __name__ == "__main__":
 
         # next_state에 대한 예측값 
         log_probs = torch.cat(log_probs).to(device)
-        next_state = next_state.to(device)
+        next_state = state.to(device)
         next_value, next_dist = a3c(next_state)
-        next_value = next_value.item()
     
         returns = compute_returns(next_value, rewards, masks, gamma)
 
