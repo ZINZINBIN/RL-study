@@ -18,18 +18,18 @@ from tqdm import tqdm
 
 parser = argparse.ArgumentParser(description="training atari with A3C method")
 parser.add_argument("--hidden_dims", type = int, default = 128)
-parser.add_argument("--lr", type = float, default = 2e-5)
-parser.add_argument("--num_envs", type = int, default = 16)
-parser.add_argument("--weight_decay", type = float, default = 0.95)
-parser.add_argument("--max_grad_norm", type = float, default = 1.0)
+parser.add_argument("--lr", type = float, default = 1e-3)
+parser.add_argument("--num_envs", type = int, default = 8)
+parser.add_argument("--weight_decay", type = float, default = 0.99)
+parser.add_argument("--max_grad_norm", type = float, default = 0.5)
 parser.add_argument("--gamma", type = float, default = 0.95)
-parser.add_argument("--n_steps", type = int, default = 12)
+parser.add_argument("--n_steps", type = int, default = 5)
 parser.add_argument("--gpu_num", type = int, default = 0)
 parser.add_argument("--max_frame", type = int, default = 10000)
 parser.add_argument("--wandb_save_name", type = str, default = "A3C-exp001")
 parser.add_argument("--value_loss_coeff", type = float, default = 1.0)
-parser.add_argument("--policy_loss_coeff", type = float, default = 0.5)
-parser.add_argument("--entropy_loss_coeff", type = float, default = 0.01)
+parser.add_argument("--policy_loss_coeff", type = float, default = 0.4)
+parser.add_argument("--entropy_loss_coeff", type = float, default = 0.001)
 
 
 args = vars(parser.parse_args())
@@ -46,17 +46,22 @@ policy_loss_coeff = args['policy_loss_coeff']
 entropy_loss_coeff = args['entropy_loss_coeff']
 max_grad_norm = args['max_grad_norm']
 
+# Generate display
 display = Display(visible=False, size = (400,300))
 display.start()
 
+# decide environment 
+env_name = 'Breakout-v0'
+# env_name = 'CartPole-v0'
+
 # using single thread(test)
-env = gym.make('Breakout-v0').unwrapped
+env = gym.make(env_name).unwrapped
 env.reset()
 
 # using multi-thread 
 def make_env():
     def _thunk():
-        env = gym.make("Breakout-v0").unwrapped
+        env = gym.make(env_name).unwrapped
         return env
     
     return _thunk
@@ -175,7 +180,6 @@ if __name__ == "__main__":
             _, reward, done, _ = envs.step(action.cpu().numpy())
 
             reward = torch.from_numpy(reward).to(device)
-            # reward = torch.tensor([reward], device = device)
             state = envs.render()
 
             log_prob = dist.log_prob(action)
@@ -184,8 +188,6 @@ if __name__ == "__main__":
             log_probs.append(log_prob)
             values.append(value)
             rewards.append(reward.unsqueeze(1))
-            # masks.append(torch.tensor([1-int(done)], device = device).unsqueeze(1))
-
             masks.append(torch.FloatTensor(1-done).unsqueeze(1).to(device))
 
         # test plot

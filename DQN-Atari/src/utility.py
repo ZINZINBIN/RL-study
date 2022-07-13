@@ -127,6 +127,30 @@ def projection_distribution(target_network:torch.nn.Module, next_state, rewards,
 
     return proj_dist
 
+def projection_distribution_QR(target_network:torch.nn.Module, num_quant, dist, next_state, rewards, dones, device = 'cpu'):
+
+    batch_size = next_state.size(0)
+    
+    next_dist = target_network(next_state) # (batch_size, n_actions, num_quant)
+    next_action = next_dist.mean(2).max(1)[1] #(batch_size)
+    next_action = next_action.unsqueeze(1).unsqueeze(1).expand(batch_size, 1, num_quant)
+
+    # gather : next_dist에 대해서 dim = 1에 대해 next_action 값을 인덱스로 데이터를 가져온다.
+    next_dist = next_dist.gather(1, next_action).squeeze(1).cpu().data # (batch_size, num_quant)..?
+
+    expected_quant = rewards.unsqueeze(1).to(device) + 0.99 * next_dist.to(device) * (1-dones.unsqueeze(1).to(device))
+    expected_quant = torch.autograd.Variable(expected_quant).to(device)
+
+    quant_idx = torch.sort(dist, 1, descending=False)[1].to(device)
+
+    tau_hat = torch.linspace(0.0, 1.0 - 1. / num_quant, num_quant) + 0.5 / num_quant
+    tau_hat = tau_hat.unsqueeze(0).repeat(batch_size, 1)
+    quant_idx = quant_idx.cpu().data
+    batch_idx = np.arange(batch_size)
+    tau = tau_hat[:, quant_idx][batch_idx, batch_idx] # projection matrix
+
+    return tau.to(device), expected_quant.to(device)
+
 # update target network
 def update_target_network(current_network : torch.nn.Module, target_network : torch.nn.Module):
     target_network.load_state_dict(current_network.state_dict())

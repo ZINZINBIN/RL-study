@@ -1,7 +1,10 @@
 import torch 
 import torch.nn as nn
+import random
+import numpy as np
 from torch.autograd import Variable
 from pytorch_model_summary import summary
+from typing import Union, Tuple, List
 
 class DQN(nn.Module):
     def __init__(self, h, w, output_dims, hidden_dims = 128):
@@ -93,7 +96,6 @@ class DuelingDQN(nn.Module):
 # Noisy Networks : https://arxiv.org/abs/1706.10295
 # component : NoisyLinear, NoisyDQN
 import math
-
 class NoisyLinear(nn.Module):
     def __init__(self, in_features : int, out_features : int, std_init :float = 0.4):
         super(NoisyLinear, self).__init__()
@@ -203,7 +205,6 @@ class NoiseDQN(nn.Module):
 # Categorical DQN : A Distributional Perspective on Reinforcement Learning
 # using NoiseLinear Layer for exploration
 # archiv : https://arxiv.org/pdf/1707.06887.pdf
-
 class CategoricalDQN(nn.Module):
     def __init__(self, h : int, w : int, output_dims : int, num_atoms : int, V_min :int, V_max : int, hidden_dims = 128):
         super(CategoricalDQN, self).__init__()
@@ -333,3 +334,136 @@ class RainbowDQN(nn.Module):
         self.noisy1_ad.reset_noise()
         self.noisy2_ad.reset_noise()
    
+
+# QR-DQN : Distributed Reinforcement Learning with Quantile Regression
+# arxiv : https://arxiv.org/pdf/1710.10044.pdf
+class QR_DQN(nn.Module):
+    def __init__(self, h : int, w : int, output_dims : int, num_quants : int, hidden_dims = 128):
+        super(QR_DQN, self).__init__()
+        self.conv1 = nn.Conv2d(3, 32, kernel_size = 8, stride = 4)
+        self.bn1 = nn.BatchNorm2d(32)
+        self.conv2 = nn.Conv2d(32, 64, kernel_size = 4, stride = 2)
+        self.bn2 = nn.BatchNorm2d(64)
+        self.conv3 = nn.Conv2d(64,64,kernel_size = 3, stride = 1)
+        self.bn3 = nn.BatchNorm2d(64)
+
+        convw = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(w, kernel_size = 8, stride = 4), 4, 2), 3, 1)
+        convh = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(h, kernel_size = 8, stride = 4), 4, 2), 3, 1)
+        linear_input_dim = convw * convh * 64
+
+        self.output_dims = output_dims
+        self.hidden_dims = hidden_dims
+
+        self.num_quants = num_quants
+
+        self.head = nn.Sequential(
+                nn.Linear(linear_input_dim, hidden_dims),
+                nn.ReLU(),
+                nn.Linear(hidden_dims, output_dims * self.num_quants)
+        )
+       
+    def _conv2d_size_out(self, size, kernel_size = 5, stride = 2):
+        outputs = (size - (kernel_size - 1) - 1) // stride + 1
+        return outputs
+
+    def forward(self, x):
+        x = nn.functional.relu(self.bn1(self.conv1(x)))
+        x = nn.functional.relu(self.bn2(self.conv2(x)))
+        x = nn.functional.relu(self.bn3(self.conv3(x)))
+        x = x.view(x.size(0), -1)
+        x = self.head(x)
+        x = x.view(x.size(0), self.output_dims, self.num_quants)
+        return x
+
+    def summary(self, sample_inputs):
+        print(summary(self, sample_inputs, max_depth = None, show_parent_layers=True, show_input = True))
+
+    def get_q_value(self, x):
+        x = self.forward(x)
+        return x.mean(2) # (batch size, num actions, num quants) => (batch_size, num_actions)
+
+    def act(self, state:Union[torch.Tensor, np.array], epsilon : float = 0.01)->torch.Tensor:
+
+        if len(state.size()) <= 3:
+            state = state.unsqueeze_(0)
+
+        if type(state) == np.array:
+            state = torch.from_numpy(state)
+
+        if random.random() > epsilon:
+            with torch.no_grad():
+                q_values = self.forward(state).mean(2)
+                action = q_values.max(1)[1].cpu()
+                #action = action.data.cpu().numpy()[0]
+              
+        else:
+            action = random.randrange(self.output_dims)
+            action = torch.tensor(action, dtype = torch.int32, device = 'cpu')
+           
+
+        return action
+
+#Hierarchical DQN
+class HDQN(nn.Module):
+    def __init__(self, h : int, w : int, output_dims : int, hidden_dims = 128):
+        super(HDQN, self).__init__()
+        self.conv1 = nn.Conv2d(3, 32, kernel_size = 8, stride = 4)
+        self.bn1 = nn.BatchNorm2d(32)
+        self.conv2 = nn.Conv2d(32, 64, kernel_size = 4, stride = 2)
+        self.bn2 = nn.BatchNorm2d(64)
+        self.conv3 = nn.Conv2d(64,64,kernel_size = 3, stride = 1)
+        self.bn3 = nn.BatchNorm2d(64)
+
+        convw = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(w, kernel_size = 8, stride = 4), 4, 2), 3, 1)
+        convh = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(h, kernel_size = 8, stride = 4), 4, 2), 3, 1)
+        linear_input_dim = convw * convh * 64
+
+        self.output_dims = output_dims
+        self.hidden_dims = hidden_dims
+
+        self.head = nn.Sequential(
+                nn.Linear(linear_input_dim, hidden_dims),
+                nn.ReLU(),
+                nn.Linear(hidden_dims, output_dims)
+        )
+       
+    def _conv2d_size_out(self, size, kernel_size = 5, stride = 2):
+        outputs = (size - (kernel_size - 1) - 1) // stride + 1
+        return outputs
+
+    def forward(self, x):
+        x = nn.functional.relu(self.bn1(self.conv1(x)))
+        x = nn.functional.relu(self.bn2(self.conv2(x)))
+        x = nn.functional.relu(self.bn3(self.conv3(x)))
+        x = x.view(x.size(0), -1)
+        x = self.head(x)
+        x = x.view(x.size(0), self.output_dims, self.num_quants)
+        return x
+
+    def summary(self, sample_inputs):
+        print(summary(self, sample_inputs, max_depth = None, show_parent_layers=True, show_input = True))
+
+    def get_q_value(self, x):
+        x = self.forward(x)
+        return x.mean(2) # (batch size, num actions, num quants) => (batch_size, num_actions)
+
+    def act(self, state:Union[torch.Tensor, np.array], epsilon : float = 0.01)->torch.Tensor:
+
+        if len(state.size()) <= 3:
+            state = state.unsqueeze_(0)
+
+        if type(state) == np.array:
+            state = torch.from_numpy(state)
+
+        if random.random() > epsilon:
+            with torch.no_grad():
+                q_values = self.forward(state).mean(2)
+                action = q_values.max(1)[1].cpu()
+                #action = action.data.cpu().numpy()[0]
+              
+        else:
+            action = random.randrange(self.output_dims)
+            action = torch.tensor(action, dtype = torch.int32, device = 'cpu')
+           
+
+        return action

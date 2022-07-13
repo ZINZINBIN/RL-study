@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import numpy as np
 from src.buffer import ReplayMemory, Transition
-from src.utility import EPS_DECAY_DEFAULT, EPS_END_DEFAULT, EPS_START_DEFAULT, get_screen, select_action_from_Q_Network, projection_distribution
+from src.utility import EPS_DECAY_DEFAULT, EPS_END_DEFAULT, EPS_START_DEFAULT, get_screen, projection_distribution_QR, select_action_from_Q_Network, projection_distribution
 from typing import Optional
 from tqdm import tqdm
 from itertools import count
@@ -219,5 +219,58 @@ def optimize_categorical_DQN(
 
     current_net.reset_noise()
     target_net.reset_noise()
+
+    return loss
+
+def optimize_QR_DQN(
+    memory = None,
+    target_net : torch.nn.Module = None, 
+    current_net : torch.nn.Module = None,
+    optimizer : torch.optim.Optimizer = None,
+    beta :float = 0.4, 
+    gamma : float = 0.9,
+    batch_size : int = 32,
+    device : str = 'cpu',
+    ):
+
+    if len(memory) < batch_size:
+        return None, None
+
+    transitions = memory.sample(batch_size)
+    batch = Transition(*zip(*transitions))
+
+    state = torch.cat(batch.state).to(device)
+    action = torch.cat(batch.action).to(device)
+    reward = torch.cat(batch.reward).to(device)
+    done = torch.cat(batch.done).to(device)
+
+    non_final_mask = torch.tensor(
+        tuple(
+            map(lambda s : s is not None,batch.next_state)
+        ),
+        device = device,
+        dtype = torch.bool
+    )
+
+    next_state = torch.zeros_like(state, device = device)
+    next_state[non_final_mask] = torch.cat([s for s in batch.next_state if s is not None]).to(device)
+
+    dist = current_net(state)
+    action = action.unsqueeze(1).unsqueeze(1).expand(batch_size, 1, current_net.num_quants)
+    dist = dist.gather(1, action).squeeze(1)
+
+    tau, expected_quant = projection_distribution_QR(target_net, target_net.num_quants, dist, next_state, reward, done, device)
+    k = 1
+
+    huber_loss = 0.5 * dist.abs().clamp(min = 0, max = k).pow(2)
+    huber_loss += k * (dist.abs() - dist.abs().clamp(min = 0, max = k))
+    quantile_loss = (tau - (dist < 0).float()).abs() * huber_loss
+    loss = quantile_loss.sum() / current_net.num_quants
+
+    optimizer.zero_grad()
+    loss.backward()
+    nn.utils.clip_grad_norm_(current_net.parameters(), 0.5)
+ 
+    optimizer.step()
 
     return loss
