@@ -14,9 +14,6 @@ class ReplayMemory(object):
         self.memory = deque([], maxlen = capacity)
 
     def push(self, *args):
-        '''
-        transition data 저장
-        '''
         self.memory.append(Transition(*args))
 
     def sample(self, batch_size):

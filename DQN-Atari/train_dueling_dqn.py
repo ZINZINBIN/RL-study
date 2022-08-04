@@ -1,7 +1,9 @@
+# 논문 : Dueling Network Architectures for Deep Reinforcement Learning
+
+from regex import B
 import gym
 import random
 import math
-from torch import long
 import torch
 import matplotlib.pyplot as plt
 import argparse
@@ -10,18 +12,20 @@ from src.utility import *
 from src.model import *
 from src.buffer import ReplayMemory, Transition, PrioritzedReplayMemory
 from pyvirtualdisplay import Display
-from tqdm import tqdm
+from tqdm.auto import tqdm
+from typing import Union, Optional
 
 parser = argparse.ArgumentParser(description="training atari with Dueling DQN")
-parser.add_argument("--batch_size", type = int, default = 128)
+parser.add_argument("--batch_size", type = int, default = 32)
 parser.add_argument("--gamma", type = float, default = 0.999)
 parser.add_argument("--eps_start", type = float, default = 0.9)
 parser.add_argument("--eps_end", type = float, default = 0.05)
 parser.add_argument("--eps_decay", type = float, default = 200)
-parser.add_argument("--target_update", type = int, default = 10)
-parser.add_argument("--num_episode", type = int, default = 256)
+parser.add_argument("--target_update", type = int, default = 8)
+parser.add_argument("--num_episode", type = int, default = 32)
 parser.add_argument("--prob_alpha", type = float, default = 0.6)
 parser.add_argument("--beta", type = float, default = 0.4)
+parser.add_argument("--memory_size", type = int, default = 1e6)
 
 args = vars(parser.parse_args())
 
@@ -34,6 +38,7 @@ TARGET_UPDATE = args['target_update']
 num_episode = args['num_episode']
 prob_alpha = args['prob_alpha']
 beta = args['beta']
+memory_size = int(args['memory_size'])
 
 episode_durations = []
 steps_done = 0
@@ -46,6 +51,8 @@ env.reset()
 
 n_actions = env.action_space.n
 
+torch.cuda.init()
+
 # cuda check
 if torch.cuda.is_available():
     print("cuda available : ", torch.cuda.is_available())
@@ -55,7 +62,7 @@ else:
     device = "cpu" 
 
 # functino for use
-def select_action(state, policy_net, device):
+def select_action(state : torch.Tensor, policy_net : nn.Module, device : str):
     global steps_done
     sample = random.random()
     eps_threshold = EPS_END + (EPS_START - EPS_END) * math.exp(-1. * steps_done / EPS_DECAY)
@@ -85,13 +92,30 @@ target_net.eval()
 
 # opimizer and memory loaded
 optimizer = torch.optim.RMSprop(policy_net.parameters())
-memory = PrioritzedReplayMemory(1000000, prob_alpha)
+# memory = PrioritzedReplayMemory(memory_size, prob_alpha)
+memory = ReplayMemory(memory_size)
+
+criterion = nn.SmoothL1Loss()
 
 # 학습 루프 : DDQN의 경우 action evaluation 과 action selection을 분리함
-def optimize_model():
+# 논문에서는 Single Network(DQN)과 Double Network(DDQN) baseline에 대해 Dueling architecture를 적용
+
+def optimize_model(
+    memory : Union[ReplayMemory, PrioritzedReplayMemory],
+    policy_net : nn.Module,
+    target_net : nn.Module,
+    criterion : Optional[nn.Module],
+    optimizer : torch.optim.Optimizer
+    ):
+
     if len(memory) < BATCH_SIZE:
         return None, None
-    transitions, indices, weights = memory.sample(BATCH_SIZE, beta)
+
+    if type(memory) == PrioritzedReplayMemory:
+        transitions, indices, weights = memory.sample(BATCH_SIZE, beta)
+    else:
+        transitions = memory.sample(BATCH_SIZE)
+
     batch = Transition(*zip(*transitions))
 
     # 최종 상태가 아닌 경우의 mask : batch sample에 선택된 각각의 state에 대한 next state 여부
@@ -113,10 +137,10 @@ def optimize_model():
     # tensor -> gather(axis = 1, action_batch) -> tensor에서 각 행별 인덱스에 대응되는 값 호출
     # gather : Q(s,:) <- action 값에 따른 Q(s,a)를 구하기 위해 적용
 
-    # DDQN과 DQN의 차이점 발생
+    # DDQN과 DQN의 차이점 발생 : action evaluation vs action selection -> separation
     # Q(s,a) = R + gamma * Q(s_next, argmax(Q(s_next,a,w)), w_)
-    # Pollicy Network에서 action selection 결정
-    # Target Network에서 selected action에 따른 action evaluation 진행
+    # Pollicy Network : action selection 결정
+    # Target Network : selected action에 대한 evaluation 진행
 
     # Q(s_t+1, a_t+1) for target and policy network
     next_q_values = policy_net(non_final_next_states)
@@ -133,20 +157,23 @@ def optimize_model():
     # Y for expected state action values
     expected_state_action_values = (next_q_values_ddqn * GAMMA) + reward_batch
 
-    criterion = nn.SmoothL1Loss() # Huber Loss
+    if criterion is None:
+        criterion = nn.SmoothL1Loss() # Huber Loss
+    
     loss = criterion(state_action_values, expected_state_action_values.unsqueeze(1))
 
-    prios = loss.detach().cpu().numpy()
-    prios = prios * weights[non_final_mask.detach().cpu().numpy()]
-    prios += 1e-5
+    # PER : prios update
+    if type(memory) == PrioritzedReplayMemory:
+        prios = loss.detach().cpu().numpy()
+        prios = prios * weights[non_final_mask.detach().cpu().numpy()]
+        prios += 1e-5
+        memory.update_priorities(indices, prios)
 
     optimizer.zero_grad()
     loss.backward()
     for param in policy_net.parameters():
         param.grad.data.clamp_(-1,1) # gradient clipping 
     optimizer.step()
-
-    memory.update_priorities(indices, prios)
 
     return expected_state_action_values.detach().cpu().numpy(), loss.detach().cpu().numpy()
 
@@ -180,7 +207,7 @@ for i_episode in tqdm(range(num_episode)):
         state = next_state
 
         # policy_net -> optimize
-        reward_new, loss_new = optimize_model()
+        reward_new, loss_new = optimize_model(memory, policy_net, target_net, criterion, optimizer)
 
         if reward_new is not None:
             mean_loss.append(loss_new)
@@ -192,8 +219,8 @@ for i_episode in tqdm(range(num_episode)):
             mean_reward = np.mean(mean_reward)
             break
 
-    if i_episode % TARGET_UPDATE == 0:
-        target_net.load_state_dict(policy_net.state_dict())  
+        if i_episode % TARGET_UPDATE == 0:
+            target_net.load_state_dict(policy_net.state_dict())  
 
     mean_loss_list.append(mean_loss)
     mean_reward_list.append(mean_reward)  

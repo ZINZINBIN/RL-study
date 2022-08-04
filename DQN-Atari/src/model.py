@@ -43,7 +43,6 @@ class DQN(nn.Module):
     def summary(self, sample_inputs):
         print(summary(self, sample_inputs, max_depth = None, show_parent_layers=True, show_input = True))
 
-
 class DuelingDQN(nn.Module):
     def __init__(self, h : int, w : int, n_actions : int, output_dims : int, fc_dims : int = 128):
         super(DuelingDQN, self).__init__()
@@ -79,7 +78,7 @@ class DuelingDQN(nn.Module):
         outputs = (size - (kernel_size - 1) - 1) // stride + 1
         return outputs
 
-    def forward(self, x):
+    def forward(self, x : torch.Tensor)->torch.Tensor:
         x = nn.functional.relu(self.bn1(self.conv1(x)))
         x = nn.functional.relu(self.bn2(self.conv2(x)))
         x = nn.functional.relu(self.bn3(self.conv3(x)))
