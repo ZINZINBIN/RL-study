@@ -1,7 +1,4 @@
 import gym
-import random
-import math
-import wandb
 import gc
 from torch import long
 import torch
@@ -139,26 +136,6 @@ test_frames = []
 
 if __name__ == "__main__":
 
-    # # wandb initialized
-    # wandb.init(project="DQN-Atari", entity="zinzinbin")
-
-    # # wandb experiment name edit
-    # wandb.run.name = args["wandb_save_name"]
-
-    # # save run setting
-    # wandb.run.save()
-
-    # wandb setting
-    # wandb.config = {
-    #     "learning_rate": lr,
-    #     "episode": num_episode,
-    #     "target_update":target_update,
-    #     "hidden_dims":hidden_dims,
-    #     "n_steps":n_steps,
-    #     "momentum":momentum,
-    #     "optimizer":"RMSprops"
-    # }
-
     # training process for each episode
     for frame_idx in tqdm(range(max_frame)):
         envs.reset()
@@ -222,14 +199,6 @@ if __name__ == "__main__":
 
         train_losses.append(loss.item())
         
-        # wandb.log({
-        #     "episode_duration":len(episode_durations),
-        #     "mean_loss":mean_loss, 
-        #     "sum_loss":sum_loss,
-        #     "mean_reward":mean_reward,
-        #     "sum_reward":sum_reward
-        # })
-
         # memory cache delete
         gc.collect()
 

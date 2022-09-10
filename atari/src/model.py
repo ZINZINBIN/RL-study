@@ -1,11 +1,14 @@
+from turtle import forward
 import torch 
 import torch.nn as nn
 import random
 import numpy as np
 from torch.autograd import Variable
+from torch.distributions import Categorical
 from pytorch_model_summary import summary
 from typing import Union, Tuple, List
 
+# Deep Q-Network 
 class DQN(nn.Module):
     def __init__(self, h, w, output_dims, hidden_dims = 128):
         super(DQN, self).__init__()
@@ -43,6 +46,7 @@ class DQN(nn.Module):
     def summary(self, sample_inputs):
         print(summary(self, sample_inputs, max_depth = None, show_parent_layers=True, show_input = True))
 
+# Dueling-DQN 
 class DuelingDQN(nn.Module):
     def __init__(self, h : int, w : int, n_actions : int, output_dims : int, fc_dims : int = 128):
         super(DuelingDQN, self).__init__()
@@ -199,7 +203,6 @@ class NoiseDQN(nn.Module):
     def reset_noise(self):
         self.noisy1.reset_noise()
         self.noisy2.reset_noise()
-
 
 # Categorical DQN : A Distributional Perspective on Reinforcement Learning
 # using NoiseLinear Layer for exploration
@@ -464,5 +467,63 @@ class HDQN(nn.Module):
             action = random.randrange(self.output_dims)
             action = torch.tensor(action, dtype = torch.int32, device = 'cpu')
            
+
+        return action
+
+# Encoder for state with 2D image
+class Encoder(nn.Module):
+    def __init__(self, h : int, w : int):
+        super(Encoder, self).__init__()
+        self.conv1 = nn.Conv2d(3, 32, kernel_size = 8, stride = 4)
+        self.bn1 = nn.BatchNorm2d(32)
+        self.conv2 = nn.Conv2d(32, 64, kernel_size = 4, stride = 2)
+        self.bn2 = nn.BatchNorm2d(64)
+        self.conv3 = nn.Conv2d(64,64,kernel_size = 3, stride = 1)
+        self.bn3 = nn.BatchNorm2d(64)
+
+        convw = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(w, kernel_size = 8, stride = 4), 4, 2), 3, 1)
+        convh = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(h, kernel_size = 8, stride = 4), 4, 2), 3, 1)
+        linear_input_dim = convw * convh * 64
+        self.linear_input_dim = linear_input_dim
+
+    def _conv2d_size_out(self, size : int, kernel_size : int = 5, stride : int = 2)->int:
+        outputs = (size - (kernel_size - 1) - 1) // stride + 1
+        return outputs
+
+    def forward(self, x : torch.Tensor)->torch.Tensor:
+        x = nn.functional.relu(self.bn1(self.conv1(x)))
+        x = nn.functional.relu(self.bn2(self.conv2(x)))
+        x = nn.functional.relu(self.bn3(self.conv3(x)))
+        x = x.view(x.size(0), -1)
+        return x
+
+# General Policy Network
+class PolicyNetwork(nn.Module):
+    def __init__(self, h : int, w : int, hidden : int, n_actions : int):
+        super(PolicyNetwork, self).__init__()
+        self.encoder = Encoder(h,w)
+        linear_input_dim = self.encoder.linear_input_dim
+        self.linear_input_dim = linear_input_dim
+        self.mlp = nn.Sequential(
+            nn.Linear(linear_input_dim, hidden),
+            nn.BatchNorm1d(hidden),
+            nn.ReLU(),
+            nn.Linear(hidden, hidden//2),
+            nn.BatchNorm1d(hidden//2),
+            nn.ReLU(),
+            nn.Linear(hidden//2, n_actions)
+        )
+
+    def forward(self, x : torch.Tensor)->torch.Tensor:
+        policy = nn.functional.softmax(self.mlp(self.encoder(x)), dim = 1)
+        dist = Categorical(policy)
+        return dist
+
+    def select_action(self, state : torch.Tensor)->torch.Tensor:
+        x = state.float().unsqueeze(0)
+        with torch.no_grad():
+            policy = nn.functional.softmax(self.mlp(self.encoder(x)), dim = 1)
+            dist = Categorical(policy)
+            action = dist.sample()
 
         return action

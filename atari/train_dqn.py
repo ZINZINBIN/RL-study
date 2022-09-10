@@ -58,7 +58,7 @@ if torch.cuda.is_available():
 else:
     device = "cpu" 
 
-# functino for use
+# function for use
 def select_action(state, policy_net, device):
     global steps_done
     sample = random.random()

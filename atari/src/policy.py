@@ -1,12 +1,3 @@
-'''Policy Optimization Based Algorithm
-# list
-- A3C
-- REINFORCE
-- A2C
-- PPO
-- TPGO
-'''
-
 import torch 
 import torch.nn as nn
 import torch.nn.functional as F
@@ -15,6 +6,7 @@ import numpy as np
 from torch.distributions import Categorical
 from pytorch_model_summary import summary
 
+# Actor Critic Algorithm
 class ActorCritic(nn.Module):
     def __init__(self, h, w, n_actions, hidden_dims = 128):
         super(ActorCritic, self).__init__()
@@ -104,6 +96,5 @@ class ActorCritic(nn.Module):
         # nn.init.normal_(self.conv3.weight, mean = 0, std = 0.1)
 
 # DPG algorithm
-
 
 # DDPG algorithm
