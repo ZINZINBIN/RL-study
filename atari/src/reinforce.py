@@ -1,10 +1,13 @@
 import torch
 import torch.nn as nn
 import numpy as np
+import gym
 from gym import Env
 from tqdm.auto import tqdm
 from collections import namedtuple, deque
 from src.utility import get_screen
+from src.model import PolicyNetwork
+from pyvirtualdisplay import Display
 
 # transition
 Transition = namedtuple(
@@ -14,7 +17,7 @@ Transition = namedtuple(
 
 # save trajectory from buffer
 class Buffer(object):
-    def __init__(self, capacity):
+    def __init__(self, capacity : int):
         self.memory = deque([], maxlen = capacity)
     def push(self, *args):
         self.memory.append(Transition(*args))
@@ -32,14 +35,14 @@ def update_trajectory(
     ):
 
     env.reset()
-    state = env.render()
+    state = get_screen(env)
     done = False
 
-    while(done):
+    while(not done):
         state = state.to(device)
-        action = policy.select_action(state).squeeze(0).cpu().numpy()
+        action = policy.select_action(state).squeeze(0)
         log_prob = policy(state).log_prob(action)
-        _, reward, done, _ = env.step(action)
+        _, reward, done, _ = env.step(action.detach().cpu().numpy())
         reward = torch.tensor([reward], device = device)
         next_state = get_screen(env)
 
@@ -70,16 +73,46 @@ def update_policy(
 
     # calculate objective function J using log_p and reward
     Gt = 0
-    loss = torch.Tensor([0], device=device)
+    loss = 0
     optimizer.zero_grad()
 
     for log_p, reward in zip(log_p_list, reward_list):
         Gt = Gt * gamma + reward
         loss += log_p * Gt
-        loss.backward()
+        loss.backward(retain_graph = True)
 
     optimizer.step()
 
+def evaluate_policy(
+    env : Env, 
+    policy : nn.Module, 
+    device : str = 'cpu'
+    ):
+
+    env.reset()
+    state = get_screen(env)
+    done = False
+    total_reward = 0
+    n_steps = 0
+
+    while(not done):
+        state = state.to(device)
+        action = policy.select_action(state).squeeze(0)
+        _, reward, done, _ = env.step(action)
+        reward = torch.tensor([reward], device = device)
+        next_state = get_screen(env)
+
+        n_steps += 1
+        total_reward += reward
+
+        if done:
+            break
+        else:
+            state = next_state
+    
+    total_reward = total_reward.cpu().numpy()
+
+    return total_reward, n_steps
 
 def REINFORCE(
     buffer : Buffer,
@@ -88,71 +121,21 @@ def REINFORCE(
     optimizer : torch.optim.Optimizer,
     device : str = 'cpu', 
     gamma : float = 0.95,
-    max_frame : int = 1e6,
-    verbose_frame : int = 1e2,
+    num_episode : int = 1024,
+    verbose : int = 8
     ):
 
+    for episode_idx in tqdm(range(num_episode)):
 
+        env.reset()
 
-# training process for each episode
-    for frame_idx in tqdm(range(max_frame)):
-        envs.reset()
-        state = envs.render()
+        # update trajectory for use
+        update_trajectory(buffer, env, policy, device)
 
-        log_probs = []
-        rewards = []
-        masks = []
-        values = []
-        losses = []
-        entropy = 0
+        # optimize policy network
+        update_policy(buffer, optimizer, device, gamma)
 
-        # multi-steps  A3C algorithm : to avoid strong correlation between samples
-        for n_step in range(n_steps):
-
-            state = state.to(device)
-            value, dist = a3c(state)
-            action = dist.sample()
-            _, reward, done, _ = envs.step(action.cpu().numpy())
-
-            reward = torch.from_numpy(reward).to(device)
-            state = envs.render()
-
-            log_prob = dist.log_prob(action)
-            entropy += dist.entropy().mean()
-
-            log_probs.append(log_prob)
-            values.append(value)
-            rewards.append(reward.unsqueeze(1))
-            masks.append(torch.FloatTensor(1-done).unsqueeze(1).to(device))
-
-        # test plot
-        if frame_idx % 100 == 0:
-            test_reward = test_env()
-            print("frame_idx : {}, test_reward : {:.3f}".format(frame_idx, test_reward))
-            test_rewards.append(test_reward)
-            test_frames.append(frame_idx)
-
-        # next_state에 대한 예측값 
-        log_probs = torch.cat(log_probs).to(device)
-        next_state = state.to(device)
-        next_value, next_dist = a3c(next_state)
-    
-        returns = compute_returns(next_value, rewards, masks, gamma)
-
-        returns = torch.cat(returns).detach()
-        values = torch.cat(values)
-
-        advantage = returns - values
-        policy_loss = -(log_probs * advantage.detach()).mean()
-        value_loss = advantage.pow(2).mean()
-
-        loss = policy_loss_coeff * policy_loss + value_loss_coeff * value_loss - entropy_loss_coeff * entropy
-        optimizer.zero_grad()
-        
-        # gradient clipping 
-        torch.nn.utils.clip_grad_norm_(a3c.parameters(), max_grad_norm)
-
-        loss.backward()
-        optimizer.step()
-
-        train_losses.append(loss.item())
+        # test for each episode
+        if episode_idx % verbose == 0:
+            total_reward, n_steps = evaluate_policy(env,  policy, device)
+            print("episode : {}, total_reward : {},  n_steps : {}".format(episode_idx+1, total_reward, n_steps))

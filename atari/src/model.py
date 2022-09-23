@@ -506,24 +506,28 @@ class PolicyNetwork(nn.Module):
         self.linear_input_dim = linear_input_dim
         self.mlp = nn.Sequential(
             nn.Linear(linear_input_dim, hidden),
-            nn.BatchNorm1d(hidden),
+            # nn.BatchNorm1d(hidden),
             nn.ReLU(),
             nn.Linear(hidden, hidden//2),
-            nn.BatchNorm1d(hidden//2),
+            # nn.BatchNorm1d(hidden//2),
             nn.ReLU(),
             nn.Linear(hidden//2, n_actions)
         )
 
     def forward(self, x : torch.Tensor)->torch.Tensor:
-        policy = nn.functional.softmax(self.mlp(self.encoder(x)), dim = 1)
+        x = x.float()
+        x = self.encoder(x)
+        x = self.mlp(x)
+        policy = nn.functional.softmax(x, dim  = 1)
         dist = Categorical(policy)
         return dist
 
     def select_action(self, state : torch.Tensor)->torch.Tensor:
-        x = state.float().unsqueeze(0)
+        x = state.float()
         with torch.no_grad():
-            policy = nn.functional.softmax(self.mlp(self.encoder(x)), dim = 1)
+            x = self.encoder(x)
+            x = self.mlp(x)
+            policy = nn.functional.softmax(x, dim  = 1)
             dist = Categorical(policy)
             action = dist.sample()
-
         return action
