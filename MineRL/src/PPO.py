@@ -5,6 +5,7 @@ from typing import Optional, Union
 from src.buffer import ReplayBuffer, Transition
 from src.action import ActionShaping
 from src.utils import get_screen_compass, select_action
+from tqdm.auto import tqdm
 import time, gc
 
 # optimization : TD loss + clipping for PPO
