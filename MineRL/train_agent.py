@@ -17,7 +17,7 @@ seed_num = 42
 eps_clip = 0.1
 lamda = 0.9
 entropy_coeff = 0.1
-T_horizon = 128
+T_horizon = 1024 * 4
 k_epoch = 4
 
 camera_angle = 20
@@ -30,6 +30,7 @@ screen_height = 64
 screen_width = 64
 
 logging.disable(logging.ERROR) # reduce clutter, remove if something doesn't work to see the error logs.
+logging.disable(logging.WARNING) 
 
 # torch cuda setting
 if torch.cuda.is_available():
@@ -45,7 +46,7 @@ if __name__ == "__main__":
     display.start();
 
     # logger
-    logging.basicConfig(level=logging.DEBUG)
+    # logging.basicConfig(level=logging.DEBUG)
 
     # define environment
     env = gym.make('MineRLNavigateDense-v0')

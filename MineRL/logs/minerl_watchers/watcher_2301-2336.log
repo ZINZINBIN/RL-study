@@ -1,0 +1,9 @@
+2022-09-28 17:06:21 5bef183423a6 process_watcher[2413] INFO Process watcher started between parent 2301 and child 2336 
+2022-09-28 17:07:02 5bef183423a6 process_watcher[2413] INFO Parent is not running, hence we need terminate the child.
+2022-09-28 17:07:02 5bef183423a6 process_watcher[2413] INFO About to reap process tree of 2336:launchClient.sh:/usr/bin/bash i sleeping, owner 1, printing process tree status in termination order:
+2022-09-28 17:07:02 5bef183423a6 process_watcher[2413] INFO 	-2340:java:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java i disk-sleep, owner 2336
+2022-09-28 17:07:02 5bef183423a6 process_watcher[2413] INFO 	-2336:launchClient.sh:/usr/bin/bash i sleeping, owner 1
+2022-09-28 17:07:02 5bef183423a6 process_watcher[2413] INFO Trying to SIGTERM 2340:java:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java i disk-sleep, owner 2336
+2022-09-28 17:07:07 5bef183423a6 process_watcher[2413] INFO Process 2340 survived SIGTERM; trying SIGKILL on 2340:java:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java i disk-sleep, owner 2336
+2022-09-28 17:07:07 5bef183423a6 process_watcher[2413] INFO Process psutil.Process(pid=2340, name='java', status='terminated', started='17:06:19') terminated with exit code None
+2022-09-28 17:07:07 5bef183423a6 process_watcher[2413] INFO Process psutil.Process(pid=2336, name='launchClient.sh', status='terminated', started='17:06:19') does not exist or is zombie.

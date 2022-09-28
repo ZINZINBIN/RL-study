@@ -1,0 +1,2 @@
+2022-09-28 17:10:43 5bef183423a6 process_watcher[3096] INFO Process watcher started between parent 2977 and child 3027 
+2022-09-28 17:11:00 5bef183423a6 process_watcher[3096] INFO Child is not running anymore, launcher can terminate.
