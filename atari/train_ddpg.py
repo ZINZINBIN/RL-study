@@ -1,8 +1,8 @@
 import torch
 import gym
+import matplotlib.pyplot as plt
 from src.utility import get_screen
-from src.model import PolicyNetwork
-from src.ddpg import REINFORCE,Buffer
+from src.ddpg import train_ddpg, ActorNetwork, CriticNetwork, ReplayBuffer, NormalizedActions
 from pyvirtualdisplay import Display
 
 # cuda check
@@ -18,7 +18,8 @@ if __name__  == "__main__":
     display = Display(visible=False, size = (400,300))
     display.start()
 
-    env = gym.make('Breakout-v0').unwrapped
+    env = gym.make('Pendulum-v1').unwrapped
+    env = NormalizedActions(env)
     env.reset()
 
     init_screen = get_screen(env)
@@ -27,16 +28,67 @@ if __name__  == "__main__":
     print("h : ", screen_height)
     print("w : ", screen_width)
 
-    n_actions = env.action_space.n
+    state_dim = env.observation_space.shape[0]
+    action_dim = env.action_space.shape[0]
     hidden = 128
-
-    policy = PolicyNetwork(screen_height, screen_width, hidden, n_actions)
-    policy.to(device)
-
-    buffer = Buffer(capacity = 100000)
-    optimizer = torch.optim.AdamW(policy.parameters(), lr = 1e-3)
+    replay_size = 100000
+    lr = 1e-3
+    tau = 1e-2
     gamma = 0.99
-    num_episode = 1024
+    num_episode = 256
     verbose = 8
+    batch_size = 64
+    min_value = -1.0
+    max_value = 1.0
+    
+    policy_network = ActorNetwork(screen_height,screen_width,action_dim, hidden)
+    target_policy_network = ActorNetwork(screen_height,screen_width,action_dim, hidden)
 
-    REINFORCE(buffer, env,  policy, optimizer,  device, gamma, num_episode, verbose)
+    value_network = CriticNetwork(screen_height, screen_width, action_dim, hidden)
+    target_value_network = CriticNetwork(screen_height, screen_width, action_dim, hidden)
+    
+    policy_network.to(device)
+    target_policy_network.to(device)
+
+    value_network.to(device)
+    target_value_network.to(device)
+
+    memory = ReplayBuffer(replay_size)
+
+    value_optimizer = torch.optim.AdamW(value_network.parameters(), lr = lr)
+    policy_optimizer = torch.optim.AdamW(policy_network.parameters(), lr = lr)
+
+    value_loss = torch.nn.SmoothL1Loss()
+    
+    episode_durations, episode_rewards = train_ddpg(
+        env, 
+        memory,
+        policy_network,
+        value_network,
+        target_policy_network,
+        target_value_network,
+        policy_optimizer,
+        value_optimizer,
+        value_loss,
+        batch_size,
+        gamma,
+        device,
+        min_value,
+        max_value,
+        tau,
+        num_episode
+    )
+
+    plt.subplot(1,2,1)
+    plt.plot(range(1, num_episode + 1), episode_durations, 'r--', label = 'episode duration')
+    plt.xlabel("Episode")
+    plt.ylabel("Duration")
+    plt.legend()
+
+    plt.subplot(1,2,2)
+    plt.plot(range(1, num_episode + 1), episode_rewards, 'b--', label = 'episode reward')
+    plt.xlabel("Episode")
+    plt.ylabel("Reward")
+    plt.legend()
+
+    plt.savefig("./results/DDPG_episode_reward.png")
