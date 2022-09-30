@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import numpy as np
 from torch.distributions import Categorical
 from typing import Optional, Union
 from src.buffer import ReplayBuffer, Transition
@@ -80,13 +81,6 @@ def optimize(
         entropy = m.entropy().mean()
         surr1 = ratio * adv
         surr2 = torch.clamp(ratio, 1 - eps_clip, 1 + eps_clip) * adv
-
-        # print("surr1 : ", surr1.size())
-        # print("surr2 : ", surr2.size())
-        # print("value : ", value.size())
-        # print("td_target : ", td_target.size())
-        # print("entropy : ", entropy.size())
-
         loss = -torch.min(surr1, surr2) + criterion(value, td_target.detach()) - entropy_coeff * entropy
 
         optimizer.zero_grad()
@@ -112,18 +106,20 @@ def train(
     entropy_coeff : float = 0.1,
     device : Optional[str] = "cpu",
     num_episode : int = 1024, 
-    save_dir : str = "./weights/ppo_last.pt",
+    save_dir : str = "./weights/ppo_best.pt",
     camera_angle : int = 10,
     always_attack : bool = True,
     seed_num = 42,
-    k_epoch : int = 16
+    k_epoch : int = 16,
+    verbose : int = 8
     ):
-
-    steps_done = 0
 
     episode_durations = []
     reward_list = []
     loss_list = []
+
+    best_reward = -np.inf
+    best_episode = 0
 
     action_decision = ActionShaping(env, camera_angle = camera_angle, always_attack = always_attack)
 
@@ -134,9 +130,6 @@ def train(
         state, compass = get_screen_compass(state, device)
 
         sum_reward = 0
-        mean_loss = 0
-        sum_loss = []
-
         start_time = time.time()
 
         for t in range(T_horizon):
@@ -173,6 +166,8 @@ def train(
         end_time = time.time()
         dt = end_time - start_time
 
+        episode_durations.append(t+1)
+
         loss_new = optimize(
             memory,
             network,
@@ -191,7 +186,8 @@ def train(
 
         reward_list.append(sum_reward) 
 
-        print("i_eposide : {} and reward : {}, time spend : {}".format(i_episode, sum_reward, dt))
+        if i_episode % verbose == 0:
+            print("i_eposide : {} and reward : {}, time spend : {}".format(i_episode, sum_reward, dt))
 
         # memory cache delete
         gc.collect()
@@ -200,9 +196,12 @@ def train(
         torch.cuda.empty_cache()
 
         # model save
-        torch.save(network.state_dict(), save_dir)
+        if sum_reward >= best_reward:
+            best_episode = i_episode + 1
+            torch.save(network.state_dict(), save_dir)
 
     print("training policy network and target network done....!")
+    print("best episode : {} and best reward(sum) : {}".format(best_episode, sum_reward))
     env.close()
 
     return loss_list, reward_list

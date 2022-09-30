@@ -51,7 +51,7 @@ if __name__ =="__main__":
 
     # model
     network = PPO(screen_height, screen_width, n_actions, 1, hidden_dims, 1).to(device)
-    network.load_state_dict(torch.load("./weights/ppo_last.pt"))
+    network.load_state_dict(torch.load("./weights/ppo_best.pt"))
     network.eval()
                                 
     total_reward = play(env, network, seed_num = 42, device = device)

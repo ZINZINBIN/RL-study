@@ -11,13 +11,14 @@ from src.PPO import train
 gamma = 0.99
 num_episode = 128
 hidden_dims = 256
+compass_dims = 16
 lr = 1e-3
 n_actions = 7
 seed_num = 42
 eps_clip = 0.1
 lamda = 0.9
 entropy_coeff = 0.1
-T_horizon = 1024 * 4
+T_horizon = 100000
 k_epoch = 4
 
 camera_angle = 20
@@ -43,10 +44,7 @@ else:
 if __name__ == "__main__":
 
     display = Display(visible=False, size=(400, 300))
-    display.start();
-
-    # logger
-    # logging.basicConfig(level=logging.DEBUG)
+    display.start()
 
     # define environment
     env = gym.make('MineRLNavigateDense-v0')
@@ -55,14 +53,14 @@ if __name__ == "__main__":
     memory = ReplayBuffer(T_horizon)
 
     # model
-    network = PPO(screen_height, screen_width, n_actions, 1, hidden_dims, 1)
+    network = PPO(screen_height, screen_width, n_actions, compass_dims, 1, hidden_dims, 1)
     network.to(device)
 
     # optimizer
     optimizer = torch.optim.AdamW(network.parameters(), lr = lr)
 
     # loss_fn
-    loss_fn = torch.nn.SmoothL1Loss(reduction = 'none')  
+    loss_fn = torch.nn.SmoothL1Loss(reduction = 'mean')  
 
     # train process
     train(
@@ -78,7 +76,7 @@ if __name__ == "__main__":
         entropy_coeff,
         device,
         num_episode, 
-        save_dir = "./weights/ppo_last.pt",
+        save_dir = "./weights/ppo_best.pt",
         camera_angle = camera_angle,
         always_attack = always_attack,
         seed_num = seed_num,

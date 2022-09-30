@@ -57,10 +57,11 @@ class NoisyLinear(nn.Module):
         return x
 
 class PPO(nn.Module):
-    def __init__(self, h : int, w : int, n_actions : int, output_dim : int, fc_dims : int = 128, softmax_dim : int = 1):
+    def __init__(self, h : int, w : int, n_actions : int, compass_dim : int, output_dim : int, fc_dims : int = 128, softmax_dim : int = 1):
         super(PPO, self).__init__()
         self.h = h
         self.w = w
+        self.compass_dim = compass_dim
         self.output_dim = output_dim
         self.softmax_dim = softmax_dim
         self.fc_dims = fc_dims
@@ -74,10 +75,13 @@ class PPO(nn.Module):
 
         convw = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(w, kernel_size = 5, stride = 2)))
         convh = self._conv2d_size_out(self._conv2d_size_out(self._conv2d_size_out(h, kernel_size = 5, stride = 2)))
+        
+        self.compass_layer = nn.Linear(1, compass_dim)
+
         linear_input_dim = convw * convh * 32
 
         self.fc = nn.Sequential(
-            nn.Linear(linear_input_dim+1, fc_dims),
+            nn.Linear(linear_input_dim+compass_dim, fc_dims),
             nn.ReLU(),
         )
 
@@ -104,8 +108,10 @@ class PPO(nn.Module):
         x = nn.functional.relu(self.bn3(self.conv3(x)))
         x = x.view(x.size(0), -1)
 
+        x_compass = self.compass_layer(compassAngle)
+
         # concat with compassAngle
-        x = torch.cat((x, compassAngle), dim = 1)
+        x = torch.cat((x, x_compass), dim = 1)
         x = self.fc(x)
 
         prob = self.fc_pi(x)
