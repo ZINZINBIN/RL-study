@@ -506,10 +506,8 @@ class PolicyNetwork(nn.Module):
         self.linear_input_dim = linear_input_dim
         self.mlp = nn.Sequential(
             nn.Linear(linear_input_dim, hidden),
-            # nn.BatchNorm1d(hidden),
             nn.ReLU(),
             nn.Linear(hidden, hidden//2),
-            # nn.BatchNorm1d(hidden//2),
             nn.ReLU(),
             nn.Linear(hidden//2, n_actions)
         )

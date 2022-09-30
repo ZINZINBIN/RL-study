@@ -35,7 +35,7 @@ class ReplayBuffer(object):
 
 # Normalized Action Space
 class NormalizedActions(gym.ActionWrapper):
-    def _action(self, action):
+    def action(self, action):
         low_bound = self.action_space.low
         upper_bound = self.action_space.high
 
@@ -43,7 +43,7 @@ class NormalizedActions(gym.ActionWrapper):
         action = np.clip(action, low_bound, upper_bound)
         return action
     
-    def _reverse_action(self, action):
+    def reverse_action(self, action):
         low_bound   = self.action_space.low
         upper_bound = self.action_space.high
         
@@ -97,8 +97,13 @@ class ActorNetwork(nn.Module):
 
     def forward(self, x:torch.Tensor)->torch.Tensor:
         x = self.encoder(x)
-        x = nn.functional.tanh(self.actor(x))
+        x = torch.tanh(self.actor(x))
         return x
+    
+    def get_action(self, x : torch.Tensor)->torch.Tensor:
+        x = x.unsqueeze(0).to(x.device)
+        action = self.forward(x)
+        return action.detach().cpu().numpy()[0,0]
 
 class CriticNetwork(nn.Module):
     def __init__(self, h : int, w : int, n_actions : int, hidden_dims : int = 128):
@@ -127,6 +132,7 @@ class OUNoise:
     def __init__(self, action_space, mu : float = 0, theta : float = 0.15, max_sigma : float = 0.3, min_sigma : float = 0.3, decay_period : int = 100000):
         self.mu = mu
         self.theta = theta
+        self.sigma = max_sigma
         self.max_sigma = max_sigma
         self.min_sigma = min_sigma
         self.decay_period = decay_period
@@ -168,6 +174,9 @@ def update_policy(
     tau : float = 1e-2
     ):
 
+    policy_network.train()
+    value_network.train()
+
     if len(memory) < batch_size:
         return None, None
 
@@ -175,7 +184,7 @@ def update_policy(
         device = "cpu"
     
     if criterion is None:
-        criterion = nn.SmoothL1Loss() # Huber Loss
+        criterion = nn.SmoothL1Loss(reduction='mean') # Huber Loss
     
     transitions = memory.sample(batch_size)
     batch = Transition(*zip(*transitions))
@@ -194,26 +203,33 @@ def update_policy(
     state_batch = torch.cat(batch.state).to(device)
     action_batch = torch.cat(batch.action).to(device)
     reward_batch = torch.cat(batch.reward).to(device)
+
+    state_batch_ = state_batch.clone()
+
+    # update value network
+    # Q = r + r'* Q'(s_{t+1}, J(a|s_{t+1}))
+    # Loss[y - Q] -> update value network
+    next_q_values = torch.zeros((batch_size,1), device = device)
+    next_q_values[non_final_mask] = target_value_network(non_final_next_states, target_policy_network(non_final_next_states).detach()).detach()
+    
+    bellman_q_values = reward_batch.unsqueeze(1) + gamma * next_q_values
+    bellman_q_values = torch.clamp(bellman_q_values, min_value, max_value).detach()
     
     q_values = value_network(state_batch, action_batch)
-    policy_loss = -q_values.mean()
-
-    next_q_values = torch.zeros(batch_size, device = device)
-    next_q_values[non_final_mask] = target_value_network(non_final_next_states, target_policy_network(non_final_next_states).detach())
-    
-    bellman_q_values = reward_batch + gamma * next_q_values
-    bellman_q_values = bellman_q_values.unsqueeze(1)
-    bellman_q_values = torch.clamp(bellman_q_values, min_value, max_value).detach()
-
     value_loss = criterion(q_values, bellman_q_values)
+
+    value_optimizer.zero_grad()
+    value_loss.backward()    
+    value_optimizer.step()
+
+    # update policy network 
+    # sum of Q-value -> grad Q(s,a) * grad J(a|s) -> update policy
+    policy_loss = value_network(state_batch, policy_network(state_batch))
+    policy_loss = -policy_loss.mean()
 
     policy_optimizer.zero_grad()
     policy_loss.backward()
     policy_optimizer.step()
-
-    value_optimizer.zero_grad()
-    value_loss.backward()
-    value_optimizer.step()
 
     # gradient clipping for value_network and policy_network
     for param in policy_network.parameters():
@@ -233,6 +249,8 @@ def update_policy(
             target_param.data * (1.0 - tau) + param.data * tau
         )
 
+    return value_loss.item(), policy_loss.item()
+
 def train_ddpg(
     env,
     memory : ReplayBuffer, 
@@ -242,7 +260,7 @@ def train_ddpg(
     target_value_network : nn.Module,
     policy_optimizer : torch.optim.Optimizer,
     value_optimizer : torch.optim.Optimizer,
-    value_loss :Optional[nn.Module] = None,
+    value_loss_fn :Optional[nn.Module] = None,
     batch_size : int = 128, 
     gamma : float = 0.99, 
     device : Optional[str] = "cpu",
@@ -250,27 +268,36 @@ def train_ddpg(
     max_value : float = np.inf,
     tau : float = 1e-2,
     num_episode : int = 256,  
+    verbose : int = 8
     ):
+
+    value_network.train()
+    policy_network.train()
+
+    target_value_network.eval()
+    target_policy_network.eval()
 
     if device is None:
         device = "cpu"
 
     episode_durations = []
     reward_list = []
+    ou_noise = OUNoise(env.action_space)
 
     for i_episode in tqdm(range(num_episode)):
         env.reset()
+        ou_noise.reset()
         state = get_screen(env)
-
         mean_reward = []
 
         for t in count():
             state = state.to(device)
-            action = policy_network(state)
-            _, reward, done, _ = env.step(action.item())
+            policy_network.eval()
+            action = policy_network(state).detach()
+            env_input_action = ou_noise.get_action(action.detach().cpu().numpy()[0,0], t)
+            _, reward, done, _ = env.step(env_input_action)
 
             mean_reward.append(reward)
-
             reward = torch.tensor([reward], device = device)
 
             if not done:
@@ -284,7 +311,7 @@ def train_ddpg(
 
             state = next_state
 
-            update_policy(
+            value_loss, policy_loss = update_policy(
                 memory,
                 policy_network,
                 value_network,
@@ -292,7 +319,7 @@ def train_ddpg(
                 target_value_network,
                 value_optimizer,
                 policy_optimizer,
-                value_loss,
+                value_loss_fn,
                 batch_size,
                 gamma,
                 device,
@@ -305,6 +332,9 @@ def train_ddpg(
                 episode_durations.append(t+1)
                 mean_reward = np.mean(mean_reward)
                 break
+
+        if i_episode % verbose == 0:
+            print("episode : {}, duration : {} and mean reward : {:.2f}".format(i_episode+1, t + 1, mean_reward))
 
         reward_list.append(mean_reward) 
 

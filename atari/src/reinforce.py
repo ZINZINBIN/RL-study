@@ -6,8 +6,9 @@ from gym import Env
 from tqdm.auto import tqdm
 from collections import namedtuple, deque
 from src.utility import get_screen
-from src.model import PolicyNetwork
+from src.model import Encoder
 from pyvirtualdisplay import Display
+from torch.distributions import Categorical
 
 # transition
 Transition = namedtuple(
@@ -25,6 +26,39 @@ class Buffer(object):
         return len(self.memory)
     def get(self):
         return self.memory.pop()
+
+# General Policy Network
+class PolicyNetwork(nn.Module):
+    def __init__(self, h : int, w : int, hidden : int, n_actions : int):
+        super(PolicyNetwork, self).__init__()
+        self.encoder = Encoder(h,w)
+        linear_input_dim = self.encoder.linear_input_dim
+        self.linear_input_dim = linear_input_dim
+        self.mlp = nn.Sequential(
+            nn.Linear(linear_input_dim, hidden),
+            nn.ReLU(),
+            nn.Linear(hidden, hidden//2),
+            nn.ReLU(),
+            nn.Linear(hidden//2, n_actions)
+        )
+
+    def forward(self, x : torch.Tensor)->torch.Tensor:
+        x = x.float()
+        x = self.encoder(x)
+        x = self.mlp(x)
+        policy = nn.functional.softmax(x, dim  = 1)
+        dist = Categorical(policy)
+        return dist
+
+    def select_action(self, state : torch.Tensor)->torch.Tensor:
+        x = state.float()
+        with torch.no_grad():
+            x = self.encoder(x)
+            x = self.mlp(x)
+            policy = nn.functional.softmax(x, dim  = 1)
+            dist = Categorical(policy)
+            action = dist.sample()
+        return action
 
 # accumulate trajectory from environment : 1 episode
 def update_trajectory(
@@ -110,7 +144,7 @@ def evaluate_policy(
         else:
             state = next_state
     
-    total_reward = total_reward.cpu().numpy()
+    total_reward = total_reward.cpu().numpy()[0]
 
     return total_reward, n_steps
 

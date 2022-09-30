@@ -1,8 +1,7 @@
 import torch
 import gym
 from src.utility import get_screen
-from src.model import PolicyNetwork
-from src.reinforce import REINFORCE,Buffer
+from src.reinforce import REINFORCE, Buffer, PolicyNetwork
 from pyvirtualdisplay import Display
 
 # cuda check

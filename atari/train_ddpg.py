@@ -18,15 +18,11 @@ if __name__  == "__main__":
     display = Display(visible=False, size = (400,300))
     display.start()
 
-    env = gym.make('Pendulum-v1').unwrapped
-    env = NormalizedActions(env)
+    env = NormalizedActions(gym.make('Pendulum-v1'))
     env.reset()
 
     init_screen = get_screen(env)
     _,_,screen_height, screen_width = init_screen.shape
-
-    print("h : ", screen_height)
-    print("w : ", screen_width)
 
     state_dim = env.observation_space.shape[0]
     action_dim = env.action_space.shape[0]
@@ -40,6 +36,7 @@ if __name__  == "__main__":
     batch_size = 64
     min_value = -1.0
     max_value = 1.0
+    verbose = 8
     
     policy_network = ActorNetwork(screen_height,screen_width,action_dim, hidden)
     target_policy_network = ActorNetwork(screen_height,screen_width,action_dim, hidden)
@@ -58,7 +55,7 @@ if __name__  == "__main__":
     value_optimizer = torch.optim.AdamW(value_network.parameters(), lr = lr)
     policy_optimizer = torch.optim.AdamW(policy_network.parameters(), lr = lr)
 
-    value_loss = torch.nn.SmoothL1Loss()
+    value_loss_fn = torch.nn.SmoothL1Loss(reduction = 'mean')
     
     episode_durations, episode_rewards = train_ddpg(
         env, 
@@ -69,14 +66,15 @@ if __name__  == "__main__":
         target_value_network,
         policy_optimizer,
         value_optimizer,
-        value_loss,
+        value_loss_fn,
         batch_size,
         gamma,
         device,
         min_value,
         max_value,
         tau,
-        num_episode
+        num_episode,
+        verbose
     )
 
     plt.subplot(1,2,1)
@@ -92,3 +90,6 @@ if __name__  == "__main__":
     plt.legend()
 
     plt.savefig("./results/DDPG_episode_reward.png")
+
+    # evaluate
+    
