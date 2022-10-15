@@ -4,10 +4,8 @@ from torch import long
 import torch
 import matplotlib.pyplot as plt
 import argparse
-from itertools import count
 from src.utility import *
 from src.model import *
-from src.buffer import PrioritzedReplayMemory, ReplayMemory, Transition
 from src.multiprocessing_env import *
 from src.policy import *
 from pyvirtualdisplay import Display
